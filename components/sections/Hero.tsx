@@ -93,7 +93,7 @@ export default function Hero() {
               </a>
               {siteContent.socials.resume && (
                 <a
-                  href={siteContent.socials.resume}
+                  href={siteContent.socials.resume.startsWith("/") ? `/personal-domain${siteContent.socials.resume}` : siteContent.socials.resume}
                   download
                   target="_blank"
                   rel="noopener noreferrer"
