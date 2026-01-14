@@ -112,10 +112,10 @@ export default function Hero() {
           </div>
 
           {/* Right: Portrait */}
-          <div className={`flex justify-center lg:justify-end -mt-24 lg:-mt-32 transition-all duration-1000 ease-out delay-500 ${
+          <div className={`flex justify-center lg:justify-end mt-8 lg:-mt-32 transition-all duration-1000 ease-out delay-500 ${
             mounted ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-          } ${isSticky ? "sticky top-24 lg:top-32" : ""}`}>
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+          } ${isSticky ? "lg:sticky lg:top-32" : ""}`}>
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96">
               <div className="relative w-full h-full rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-500">
                 <DotPortrait
                   src="/me.jpg"

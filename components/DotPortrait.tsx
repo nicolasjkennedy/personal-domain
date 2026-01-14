@@ -83,7 +83,7 @@ export default function DotPortrait({
             const gray = 0.299 * r + 0.587 * g + 0.114 * b;
             
             // Increase brightness to match text visibility
-            const brightnessBoost = 1.6; // Boost brightness to match text
+            const brightnessBoost = 2.2; // Increased brightness for better detail visibility
             
             // Apply contrast adjustment
             const contrast = 1.2; // Moderate contrast
@@ -95,7 +95,7 @@ export default function DotPortrait({
             let brightness = boostedGray / 255;
             
             // Add minimum opacity threshold to ensure visibility (match text opacity range)
-            const minOpacity = 0.4; // Minimum 40% opacity to match text brightness
+            const minOpacity = 0.6; // Increased minimum opacity for better detail visibility
             brightness = Math.max(minOpacity, brightness);
             
             // Skip transparent pixels
