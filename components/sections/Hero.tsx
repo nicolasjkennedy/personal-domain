@@ -2,34 +2,12 @@
 
 import { siteContent } from "@/src/content/site";
 import { useEffect, useState } from "react";
-import DotPortrait from "@/components/DotPortrait";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
-  const [isSticky, setIsSticky] = useState(true);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const educationSection = document.getElementById("education");
-      if (educationSection) {
-        const rect = educationSection.getBoundingClientRect();
-        // When education section reaches the top of viewport, stop sticky
-        if (rect.top <= 100) {
-          setIsSticky(false);
-        } else {
-          setIsSticky(true);
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check initial state
-
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -37,10 +15,8 @@ export default function Hero() {
       id="about"
       className="min-h-screen flex items-center pt-24 lg:pt-32 px-6 sm:px-8 lg:px-12 py-20 lg:py-32"
     >
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Text Content */}
-          <div className="space-y-8 lg:space-y-10">
+      <div className="max-w-4xl mx-auto w-full">
+        <div className="space-y-8 lg:space-y-10">
             <div className={`space-y-4 lg:space-y-6 transition-all duration-1000 ease-out ${
               mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
@@ -109,25 +85,6 @@ export default function Hero() {
                 Contact
               </a>
             </div>
-          </div>
-
-          {/* Right: Portrait */}
-          <div className={`flex justify-center lg:justify-end mt-8 lg:-mt-32 transition-all duration-1000 ease-out delay-500 ${
-            mounted ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-          } ${isSticky ? "lg:sticky lg:top-32" : ""}`}>
-            <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96">
-              <div className="relative w-full h-full rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-500">
-                <DotPortrait
-                  src="/me.jpg"
-                  alt={siteContent.name}
-                  className="w-full h-full rounded-2xl"
-                  dotSize={1}
-                  spacing={1}
-                  maxDots={50000}
-                />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
