@@ -124,7 +124,9 @@ export default function DotPortrait({
       setIsLoading(false);
     };
 
-    img.src = src;
+    // Prepend basePath for GitHub Pages deployment
+    const basePath = "/personal-domain";
+    img.src = src.startsWith("/") ? `${basePath}${src}` : src;
   }, [src, dotSize, spacing, maxDots]);
 
   if (error) {
