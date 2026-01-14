@@ -237,8 +237,7 @@ export async function processPortraitImage(
       reject(new Error('Failed to load image'));
     };
 
-    // Prepend basePath for GitHub Pages deployment
-    const basePath = "/personal-domain";
-    img.src = imageUrl.startsWith("/") ? `${basePath}${imageUrl}` : imageUrl;
+    // Use imageUrl directly (no basePath needed for custom domain)
+    img.src = imageUrl;
   });
 }
