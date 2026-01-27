@@ -56,15 +56,15 @@ export interface SiteContent {
 
 export const siteContent: SiteContent = {
   name: "Nicolas James Kennedy",
-  headline: "Computer Engineering Undergraduate | Aspiring Full-Stack Developer | Systems & Web Engineering",
+  headline: "Computer Engineering Undergraduate | Co-Founder at Service Surfer LLC | Systems & Web Engineering",
   summary: [
     "Computer Engineering B.S. student at the University of Rhode Island (GPA: 3.7)",
+    "Co-Founder of Service Surfer LLC, an AI-powered search platform for service providers",
     "IT Network Technician with hands-on systems and infrastructure experience",
-    "Strong foundation in programming, networking, and web development",
-    "Actively building skills as a full-stack developer through projects and applied work"
+    "Strong foundation in programming, networking, and web development"
   ],
   location: "Kingston, Rhode Island",
-  currently: "IT Network Technician at University of Rhode Island",
+  currently: "Co-Founder at Service Surfer LLC | IT Network Technician at University of Rhode Island",
   socials: {
     linkedin: "https://linkedin.com/in/nicolasjkennedy",
     email: "mailto:nicolasjameskennedy@gmail.com",
@@ -89,6 +89,19 @@ export const siteContent: SiteContent = {
     }
   ],
   experience: [
+    {
+      company: "Service Surfer LLC",
+      role: "Co-Founder",
+      dates: "2025–Present",
+      bullets: [
+        "Co-founded and launched an AI-powered search platform for finding local and online service providers",
+        "Lead development of web scraping, data ingestion, and AI-powered categorization systems",
+        "Architected scalable backend infrastructure using PostgreSQL and vector search technologies",
+        "Aggregate service data from multiple sources and generate clean, concise business summaries",
+        "Built platform to replace fragmented searches across Yelp, Google, and social media with a single interface"
+      ],
+      tech: ["Python", "PostgreSQL", "Vector Search", "LLMs", "Web Scraping", "Data Processing", "Backend Architecture"]
+    },
     {
       company: "University of Rhode Island",
       role: "IT Network Technician",
@@ -118,8 +131,8 @@ export const siteContent: SiteContent = {
   projects: [
     {
       name: "Service Surfer",
-      oneLiner: "AI-powered search platform for finding local and online service providers",
-      description: "Service Surfer is an AI-powered search platform that helps users quickly find local and online service providers. It aggregates service data from multiple public sources, automatically organizes businesses by category and location, and generates clean, concise summaries. The goal is to replace fragmented searches across Yelp, Google, and social media with a single, fast, structured interface. Key focus areas include web scraping and data ingestion, structured databases and vector search, AI-generated summaries and categorization, and scalable backend architecture for continuous data updates.",
+      oneLiner: "AI-powered search platform for finding local and online service providers (Co-founded LLC)",
+      description: "Service Surfer LLC is an AI-powered search platform that helps users quickly find local and online service providers. As a co-founder, I lead development of the platform's core systems including web scraping and data ingestion, structured databases and vector search, AI-generated summaries and categorization, and scalable backend architecture. The platform aggregates service data from multiple public sources, automatically organizes businesses by category and location, and generates clean, concise summaries to replace fragmented searches across Yelp, Google, and social media with a single, fast, structured interface.",
       tech: ["Python", "PostgreSQL", "Vector Search", "LLMs", "Web Scraping", "Data Processing"],
       links: {
         live: "https://servicesurfer.app"
