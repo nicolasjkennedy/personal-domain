@@ -186,16 +186,6 @@ npm run lint
 
 **Note:** This project uses static export (`output: "export"`), so `npm start` is not available. The build creates a fully static site in the `out/` directory that can be served by any static file server.
 
-## Notes
-
-- **Portrait Image**: Place your photo at `public/me.jpg` for automatic halftone processing
-- **Resume PDF**: Place your resume PDF in the `public` folder and update the path in `site.ts`
-- The site is fully responsive and accessible (WCAG compliant)
-- SEO metadata is configured in `app/layout.tsx`
-- Smooth scrolling is enabled for anchor links
-- All animations respect `prefers-reduced-motion` preference
-- The dot field background is performance-optimized with requestAnimationFrame
-
 ## Features
 
 - ✅ Minimalist black-and-white editorial design

@@ -137,7 +137,7 @@ export const siteContent: SiteContent = {
       description: "Service Surfer is an AI-powered search platform that helps users quickly find local and online service providers. It aggregates service data from multiple public sources, automatically organizes businesses by category and location, and generates clean, concise summaries. The goal is to replace fragmented searches across Yelp, Google, and social media with a single, fast, structured interface. Key focus areas include web scraping and data ingestion, structured databases and vector search, AI-generated summaries and categorization, and scalable backend architecture for continuous data updates.",
       tech: ["Python", "PostgreSQL", "Vector Search", "LLMs", "Web Scraping", "Data Processing"],
       links: {
-        live: "https://servicesurfer.co"
+        live: "https://servicesurfer.app"
       },
       featured: true
     },
@@ -167,27 +167,18 @@ export const siteContent: SiteContent = {
     {
       name: "State Champion — Web Design",
       issuer: "SkillsUSA",
-      date: "2024"
+      date: "2022"
     },
     {
       name: "Python Programming",
       issuer: "Certified",
-      date: "2024"
+      date: "2021"
     },
     {
       name: "IC3 Digital Literacy",
       issuer: "Certified",
-      date: "2023"
+      date: "2022"
     },
-    {
-      name: "Web Development",
-      issuer: "Certified",
-      date: "2023"
-    },
-    {
-      name: "National Honor Society",
-      issuer: "Rogers High School",
-      date: "2023"
-    }
+
   ]
 };
