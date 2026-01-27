@@ -76,16 +76,15 @@ export const siteContent: SiteContent = {
       degree: "B.S. Computer Engineering",
       dates: "Expected May 2028",
       highlights: [
-        "GPA: 3.7",
-        "Relevant Coursework: Electricity & Magnetism, Differential Equations, Computer Systems, Digital Circuit Design, Engineering 105 & 106, AP Computer Science A"
+        "GPA: 3.7"
       ]
     },
     {
-      school: "Rogers High School / Busan Foreign School",
+      school: "Rogers High School (Newport, RI) / Busan Foreign School (Busan, South Korea)",
       degree: "High School Diploma",
       dates: "Graduated May 2024",
       highlights: [
-        "Weighted GPA: 4.3 | Class Rank: 12/151 | SAT: 1210"
+        "GPA: 4.3 | Class Rank: 12/151"
       ]
     }
   ],
@@ -113,22 +112,8 @@ export const siteContent: SiteContent = {
         "Assisted with system recovery following a major cyber incident"
       ],
       tech: ["Network Configuration", "OBS Studio", "IP Camera Systems", "Helpdesk Support"]
-    },
-    {
-      company: "Easy Does It Entertainment",
-      role: "Event Coordinator / Logistics Operator",
-      dates: "2025",
-      bullets: [
-        "Coordinated logistics for large-scale events",
-        "Managed scheduling, inventory, and client communication"
-      ]
-    },
-    {
-      company: "Brick Alley Pub & Flo's Clam Shack",
-      role: "Server / Busser",
-      dates: "2023–2024",
-      bullets: []
     }
+    
   ],
   projects: [
     {
