@@ -1,90 +1,186 @@
 "use client";
 
 import { siteContent } from "@/src/content/site";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Portrait from "@/components/Portrait";
+import TypingText from "@/components/TypingText";
+import TerminalPrompt from "@/components/TerminalPrompt";
+import { useTyping } from "@/contexts/TypingContext";
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false);
+  const { setHasStarted } = useTyping();
+  const [startTyping, setStartTyping] = useState(false);
+  const [showName, setShowName] = useState(false);
+  const [showHeadline, setShowHeadline] = useState(false);
+  const [showSummary, setShowSummary] = useState(false);
+  const [currentSummaryIndex, setCurrentSummaryIndex] = useState(0);
+  const [showCurrently, setShowCurrently] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
+  const [showPortrait, setShowPortrait] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const handlePromptEnter = () => {
+    setStartTyping(true);
+    setShowPortrait(true);
+    setShowName(true); // Start showing name immediately
+    setHasStarted(true); // Enable navigation and scrolling
+  };
+
+  const handleNameComplete = () => {
+    setTimeout(() => setShowHeadline(true), 300);
+  };
+
+  const handleHeadlineComplete = () => {
+    setTimeout(() => setShowSummary(true), 500);
+  };
+
+  const handleSummaryComplete = (index: number) => {
+    if (index < siteContent.summary.length - 1) {
+      setTimeout(() => {
+        setCurrentSummaryIndex(index + 1);
+      }, 400);
+    } else {
+      setTimeout(() => setShowCurrently(true), 500);
+    }
+  };
+
+  const handleCurrentlyComplete = () => {
+    setTimeout(() => setShowButtons(true), 500);
+  };
 
   return (
     <section
       id="about"
       className="min-h-screen flex items-center pt-24 lg:pt-32 px-6 sm:px-8 lg:px-12 py-20 lg:py-32"
     >
-      <div className="max-w-4xl mx-auto w-full">
-        <div className="space-y-8 lg:space-y-10">
-            <div className={`space-y-4 lg:space-y-6 transition-all duration-1000 ease-out ${
-              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-none">
-                {siteContent.name}
-              </h1>
-              <p className={`text-xl sm:text-2xl lg:text-3xl font-light opacity-90 tracking-wide transition-all duration-1000 ease-out delay-200 ${
-                mounted ? "opacity-90 translate-y-0" : "opacity-0 translate-y-4"
-              }`}>
-                {siteContent.headline}
-              </p>
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Portrait */}
+          <div
+            className={`order-2 lg:order-2 flex justify-center lg:justify-start transition-all duration-1000 ease-out ${
+              showPortrait ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+            }`}
+          >
+            <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+              <Portrait
+                src="/me.png"
+                alt={`${siteContent.name} headshot`}
+              />
             </div>
+          </div>
 
-            <div className={`space-y-3 pt-4 transition-all duration-1000 ease-out delay-300 ${
-              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}>
-              {siteContent.summary.map((bullet, index) => (
-                <div 
-                  key={index} 
-                  className={`flex items-start gap-3 transition-all duration-700 ease-out ${
-                    mounted ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-                  }`}
-                  style={{ transitionDelay: `${400 + index * 100}ms` }}
-                >
-                  <span className="text-foreground/40 mt-2">—</span>
-                  <p className="text-base sm:text-lg opacity-80 leading-relaxed">
-                    {bullet}
+          {/* Content */}
+          <div className="order-1 lg:order-1 space-y-8 lg:space-y-10">
+            {/* Terminal Prompt */}
+            <TerminalPrompt onEnter={handlePromptEnter} autoTrigger={false} />
+
+            {/* Name */}
+            {startTyping && showName && (
+              <div className="space-y-4 lg:space-y-6">
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-none">
+                  <TypingText
+                    key="name"
+                    text={siteContent.name}
+                    speed={25}
+                    delay={0}
+                    onComplete={handleNameComplete}
+                    className=""
+                  />
+                </h1>
+
+                {/* Headline */}
+                {showHeadline && (
+                  <p className="text-xl sm:text-2xl lg:text-3xl font-light opacity-90 tracking-wide">
+                    <TypingText
+                      key="headline"
+                      text={siteContent.headline}
+                      speed={15}
+                      delay={0}
+                      onComplete={handleHeadlineComplete}
+                      className=""
+                    />
                   </p>
-                </div>
-              ))}
-            </div>
+                )}
 
-            <div className={`pt-4 transition-all duration-1000 ease-out delay-700 ${
-              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}>
-              <p className="text-sm opacity-60 font-mono">
-                Currently: {siteContent.currently}
-              </p>
-            </div>
+                {/* Summary Bullets */}
+                {showSummary && (
+                  <div className="space-y-3 pt-4">
+                    {siteContent.summary.map((bullet, index) => {
+                      if (index <= currentSummaryIndex) {
+                        return (
+                          <div
+                            key={index}
+                            className="flex items-start gap-3"
+                          >
+                            <span className="text-foreground/40 mt-2">—</span>
+                            <p className="text-base sm:text-lg opacity-80 leading-relaxed">
+                              {index === currentSummaryIndex ? (
+                                <TypingText
+                                  key={`summary-${index}`}
+                                  text={bullet}
+                                  speed={10}
+                                  delay={0}
+                                  onComplete={() => handleSummaryComplete(index)}
+                                  className=""
+                                />
+                              ) : (
+                                bullet
+                              )}
+                            </p>
+                          </div>
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
+                )}
 
-            {/* CTA Buttons */}
-            <div className={`flex flex-wrap gap-4 pt-6 transition-all duration-1000 ease-out delay-800 ${
-              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}>
-              <a
-                href="#projects"
-                className="px-6 py-3 border border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
-              >
-                View Projects
-              </a>
-              {siteContent.socials.resume && (
-                <a
-                  href={siteContent.socials.resume}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 border border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
-                >
-                  Download Resume
-                </a>
-              )}
-              <a
-                href="#contact"
-                className="px-6 py-3 border border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
-              >
-                Contact
-              </a>
-            </div>
+                {/* Currently */}
+                {showCurrently && (
+                  <div className="pt-4">
+                    <p className="text-sm opacity-60 font-mono">
+                      <TypingText
+                        key="currently"
+                        text={`Currently: ${siteContent.currently}`}
+                        speed={15}
+                        delay={0}
+                        onComplete={handleCurrentlyComplete}
+                        className=""
+                      />
+                    </p>
+                  </div>
+                )}
+
+                {/* CTA Buttons */}
+                {showButtons && (
+                  <div className="flex flex-wrap gap-4 pt-6 animate-fade-in">
+                    <a
+                      href="#projects"
+                      className="px-6 py-3 border border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
+                    >
+                      View Projects
+                    </a>
+                    {siteContent.socials.resume && (
+                      <a
+                        href={siteContent.socials.resume}
+                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 border border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
+                      >
+                        Download Resume
+                      </a>
+                    )}
+                    <a
+                      href="#contact"
+                      className="px-6 py-3 border border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
+                    >
+                      Contact
+                    </a>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

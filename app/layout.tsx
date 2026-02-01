@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteContent } from "@/src/content/site";
 import DotFieldBackground from "@/components/DotFieldBackground";
+import { TypingProvider } from "@/contexts/TypingContext";
+import ScrollLock from "@/components/ScrollLock";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -40,16 +42,19 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} antialiased bg-[#0a0a0a] text-[#f5f5f5]`} style={{ backgroundColor: '#0a0a0a', color: '#f5f5f5' }}>
-        <DotFieldBackground 
-          density={0.3}
-          speed={0.3}
-          dotSize={1.5}
-          opacity={0.5}
-          mouseStrength={0.5}
-        />
-        <div style={{ position: 'relative', zIndex: 10 }}>
-          {children}
-        </div>
+        <TypingProvider>
+          <ScrollLock />
+          <DotFieldBackground 
+            density={.01}
+            speed={1}
+            dotSize={1.5}
+            opacity={0.5}
+            mouseStrength={0.5}
+          />
+          <div style={{ position: 'relative', zIndex: 10 }}>
+            {children}
+          </div>
+        </TypingProvider>
       </body>
     </html>
   );

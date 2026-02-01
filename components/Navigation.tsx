@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTyping } from "@/contexts/TypingContext";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -12,10 +13,13 @@ const navItems = [
 ];
 
 export default function Navigation() {
+  const { hasStarted } = useTyping();
   const [activeSection, setActiveSection] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    if (!hasStarted) return;
+
     const handleScroll = () => {
       const sections = navItems.map((item) => item.href.substring(1));
       const scrollPosition = window.scrollY + 100;
@@ -33,7 +37,7 @@ export default function Navigation() {
     handleScroll(); // Initial check
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [hasStarted]);
 
   const handleClick = (href: string) => {
     setIsMobileMenuOpen(false);
@@ -42,6 +46,11 @@ export default function Navigation() {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+
+  // Don't render navigation until typing has started
+  if (!hasStarted) {
+    return null;
+  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-sm border-b border-white/5 animate-fade-in">
