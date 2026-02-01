@@ -5,6 +5,7 @@ import { siteContent } from "@/src/content/site";
 
 interface TerminalPromptProps {
   onEnter?: () => void;
+  onSkip?: () => void;
   autoTrigger?: boolean;
   autoTriggerDelay?: number;
 }
@@ -17,6 +18,7 @@ interface TerminalCommand {
 
 export default function TerminalPrompt({
   onEnter,
+  onSkip,
   autoTrigger = false,
   autoTriggerDelay = 1500,
 }: TerminalPromptProps) {
@@ -44,6 +46,40 @@ export default function TerminalPrompt({
     { type: "command", command: "read -p 'Press Enter to continue...'", output: "Press Enter to continue..." },
   ];
 
+  const handleSkip = () => {
+    // Clear all intervals
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+
+    // Mark all commands as completed
+    const allCommandIndices = terminalCommands.map((_, idx) => idx);
+    setCompletedCommands(allCommandIndices);
+    setCurrentCommandIndex(terminalCommands.length);
+    setCurrentCommandText("");
+    setCurrentOutputText("");
+    setIsTypingCommand(false);
+    setIsTypingOutput(false);
+    setHasTriggered(true);
+    setShowCursor(false);
+    setShowPressEnter(false);
+
+    // Hide terminal and trigger skip
+    setTimeout(() => {
+      setShowPrompt(false);
+      if (onSkip) {
+        onSkip();
+      } else if (onEnter) {
+        onEnter();
+      }
+    }, 100);
+  };
+
   // Type out commands sequentially
   useEffect(() => {
     if (currentCommandIndex >= terminalCommands.length) {
@@ -59,7 +95,7 @@ export default function TerminalPrompt({
       setTimeout(() => {
         setCompletedCommands(prev => [...prev, currentCommandIndex]);
         setCurrentCommandIndex(prev => prev + 1);
-      }, 133); // 1.5x faster (200 / 1.5)
+      }, 67); // 2x faster (133 / 2)
       return;
     }
 
@@ -102,20 +138,20 @@ export default function TerminalPrompt({
                     setCurrentCommandIndex(prev => prev + 1);
                     setCurrentCommandText("");
                     setCurrentOutputText("");
-                  }, 267); // 1.5x faster (400 / 1.5)
+                  }, 133); // 2x faster (267 / 2)
                 }
-              }, 13); // Fast output typing (1.5x faster)
+              }, 6.5); // 2x faster output typing (13 / 2)
             } else {
               // No output, move to next command
               setTimeout(() => {
                 setCompletedCommands(prev => [...prev, currentCommandIndex]);
                 setCurrentCommandIndex(prev => prev + 1);
                 setCurrentCommandText("");
-              }, 200);
+              }, 100); // 2x faster (200 / 2)
             }
-          }, 200);
+          }, 100); // 2x faster (200 / 2)
         }
-      }, 20); // Command typing speed (1.5x faster)
+      }, 10); // 2x faster command typing (20 / 2)
 
       return () => {
         if (intervalRef.current) clearInterval(intervalRef.current);
@@ -253,6 +289,17 @@ export default function TerminalPrompt({
             </div>
           )}
         </div>
+      </div>
+
+      {/* Skip Button - Always visible at bottom */}
+      <div className="px-6 pb-4 pt-2 border-t border-white/10">
+        <button
+          onClick={handleSkip}
+          className="px-2 py-1 text-xs font-mono text-white/50 hover:text-white/80 hover:bg-white/5 transition-all duration-200 rounded"
+          aria-label="Skip animations"
+        >
+          (skip)
+        </button>
       </div>
     </div>
   );

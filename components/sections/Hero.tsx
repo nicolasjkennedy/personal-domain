@@ -17,6 +17,7 @@ export default function Hero() {
   const [showCurrently, setShowCurrently] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
   const [showPortrait, setShowPortrait] = useState(false);
+  const [skipAnimations, setSkipAnimations] = useState(false);
 
   const handlePromptEnter = () => {
     setStartTyping(true);
@@ -25,26 +26,48 @@ export default function Hero() {
     setHasStarted(true); // Enable navigation and scrolling
   };
 
+  const handleSkip = () => {
+    // Skip all animations - show everything immediately
+    setSkipAnimations(true);
+    setStartTyping(true);
+    setShowPortrait(true);
+    setShowName(true);
+    setShowHeadline(true);
+    setShowSummary(true);
+    setCurrentSummaryIndex(siteContent.summary.length - 1);
+    setShowCurrently(true);
+    setShowButtons(true);
+    setHasStarted(true); // Enable navigation and scrolling
+  };
+
   const handleNameComplete = () => {
-    setTimeout(() => setShowHeadline(true), 300);
+    if (!skipAnimations) {
+      setTimeout(() => setShowHeadline(true), 300);
+    }
   };
 
   const handleHeadlineComplete = () => {
-    setTimeout(() => setShowSummary(true), 500);
+    if (!skipAnimations) {
+      setTimeout(() => setShowSummary(true), 500);
+    }
   };
 
   const handleSummaryComplete = (index: number) => {
-    if (index < siteContent.summary.length - 1) {
-      setTimeout(() => {
-        setCurrentSummaryIndex(index + 1);
-      }, 400);
-    } else {
-      setTimeout(() => setShowCurrently(true), 500);
+    if (!skipAnimations) {
+      if (index < siteContent.summary.length - 1) {
+        setTimeout(() => {
+          setCurrentSummaryIndex(index + 1);
+        }, 400);
+      } else {
+        setTimeout(() => setShowCurrently(true), 500);
+      }
     }
   };
 
   const handleCurrentlyComplete = () => {
-    setTimeout(() => setShowButtons(true), 500);
+    if (!skipAnimations) {
+      setTimeout(() => setShowButtons(true), 500);
+    }
   };
 
   return (
@@ -71,33 +94,41 @@ export default function Hero() {
           {/* Content */}
           <div className="order-1 lg:order-1 space-y-8 lg:space-y-10">
             {/* Terminal Prompt */}
-            <TerminalPrompt onEnter={handlePromptEnter} autoTrigger={false} />
+            <TerminalPrompt onEnter={handlePromptEnter} onSkip={handleSkip} autoTrigger={false} />
 
             {/* Name */}
             {startTyping && showName && (
               <div className="space-y-4 lg:space-y-6">
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-none">
-                  <TypingText
-                    key="name"
-                    text={siteContent.name}
-                    speed={25}
-                    delay={0}
-                    onComplete={handleNameComplete}
-                    className=""
-                  />
+                  {skipAnimations ? (
+                    siteContent.name
+                  ) : (
+                    <TypingText
+                      key="name"
+                      text={siteContent.name}
+                      speed={25}
+                      delay={0}
+                      onComplete={handleNameComplete}
+                      className=""
+                    />
+                  )}
                 </h1>
 
                 {/* Headline */}
                 {showHeadline && (
                   <p className="text-xl sm:text-2xl lg:text-3xl font-light opacity-90 tracking-wide">
-                    <TypingText
-                      key="headline"
-                      text={siteContent.headline}
-                      speed={15}
-                      delay={0}
-                      onComplete={handleHeadlineComplete}
-                      className=""
-                    />
+                    {skipAnimations ? (
+                      siteContent.headline
+                    ) : (
+                      <TypingText
+                        key="headline"
+                        text={siteContent.headline}
+                        speed={15}
+                        delay={0}
+                        onComplete={handleHeadlineComplete}
+                        className=""
+                      />
+                    )}
                   </p>
                 )}
 
@@ -113,7 +144,9 @@ export default function Hero() {
                           >
                             <span className="text-foreground/40 mt-2">—</span>
                             <p className="text-base sm:text-lg opacity-80 leading-relaxed">
-                              {index === currentSummaryIndex ? (
+                              {skipAnimations || index < currentSummaryIndex ? (
+                                bullet
+                              ) : (
                                 <TypingText
                                   key={`summary-${index}`}
                                   text={bullet}
@@ -122,8 +155,6 @@ export default function Hero() {
                                   onComplete={() => handleSummaryComplete(index)}
                                   className=""
                                 />
-                              ) : (
-                                bullet
                               )}
                             </p>
                           </div>
@@ -138,14 +169,18 @@ export default function Hero() {
                 {showCurrently && (
                   <div className="pt-4">
                     <p className="text-sm opacity-60 font-mono">
-                      <TypingText
-                        key="currently"
-                        text={`Currently: ${siteContent.currently}`}
-                        speed={15}
-                        delay={0}
-                        onComplete={handleCurrentlyComplete}
-                        className=""
-                      />
+                      {skipAnimations ? (
+                        `Currently: ${siteContent.currently}`
+                      ) : (
+                        <TypingText
+                          key="currently"
+                          text={`Currently: ${siteContent.currently}`}
+                          speed={15}
+                          delay={0}
+                          onComplete={handleCurrentlyComplete}
+                          className=""
+                        />
+                      )}
                     </p>
                   </div>
                 )}
