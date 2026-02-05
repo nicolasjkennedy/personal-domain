@@ -194,15 +194,14 @@ export default function Hero() {
                     >
                       View Projects
                     </a>
-                    {siteContent.socials.resume && (
+                    {siteContent.socials.github && (
                       <a
-                        href={siteContent.socials.resume}
-                        download
+                        href={siteContent.socials.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-6 py-3 border border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
                       >
-                        Download Resume
+                        View GitHub
                       </a>
                     )}
                     <a

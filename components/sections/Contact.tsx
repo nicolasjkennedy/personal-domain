@@ -52,17 +52,6 @@ export default function Contact() {
                   GitHub
                 </a>
               )}
-              {siteContent.socials.resume && (
-                <a
-                  href={siteContent.socials.resume}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-base opacity-70 hover:opacity-100 border-b border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 inline-block"
-                >
-                  Resume
-                </a>
-              )}
               {siteContent.socials.website && (
                 <a
                   href={siteContent.socials.website}
