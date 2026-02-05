@@ -56,7 +56,7 @@ export interface SiteContent {
 
 export const siteContent: SiteContent = {
   name: "Nicolas James Kennedy",
-  headline: "Computer Engineering Undergraduate | Co-Founder at Service Surfer LLC | Software & Network Engineering",
+  headline: "Co-Founder at Service Surfer | Computer Engineering @ URI",
   summary: [
     "Computer Engineering B.S. student at the University of Rhode Island (GPA: 3.7)",
     "Co-Founder of Service Surfer LLC, an AI-powered search platform for service providers",
@@ -68,7 +68,8 @@ export const siteContent: SiteContent = {
   socials: {
     linkedin: "https://linkedin.com/in/nicolasjkennedy",
     email: "mailto:nicolasjameskennedy@gmail.com",
-    github: "https://github.com/nicolasjkennedy"
+    github: "https://github.com/nicolasjkennedy",
+    resume: "/Nicolas_Kennedy_Resume_Personal_Domain.pdf"
   },
   education: [
     {

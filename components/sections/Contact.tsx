@@ -63,6 +63,33 @@ export default function Contact() {
                 </a>
               )}
             </div>
+
+            {/* Resume Download */}
+            {siteContent.socials.resume && (
+              <div className="pt-4">
+                <a
+                  href={siteContent.socials.resume}
+                  download
+                  className="inline-flex items-center gap-3 px-6 py-3 border border-white/20 hover:border-white/40 hover:bg-white/5 hover:scale-105 transition-all duration-300 text-sm font-mono tracking-wide group"
+                >
+                  <svg
+                    className="w-4 h-4 opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:translate-y-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M12 4v12m0 0l-4-4m4 4l4-4M4 18h16"
+                    />
+                  </svg>
+                  <span>Download Resume</span>
+                </a>
+              </div>
+            )}
           </div>
         </AnimateOnScroll>
 

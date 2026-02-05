@@ -186,7 +186,9 @@ export default function TerminalPrompt({
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === "Enter" && !hasTriggered && !isTypingCommand) {
+      if (e.key === "Escape" && !hasTriggered) {
+        handleSkip();
+      } else if (e.key === "Enter" && !hasTriggered && !isTypingCommand) {
         handleEnter();
       }
     };
@@ -292,14 +294,24 @@ export default function TerminalPrompt({
       </div>
 
       {/* Skip Button - Always visible at bottom */}
-      <div className="px-6 pb-4 pt-2 border-t border-white/10">
+      <div className="px-6 pb-4 pt-3 border-t border-white/10 flex items-center justify-between">
         <button
           onClick={handleSkip}
-          className="px-2 py-1 text-xs font-mono text-white/50 hover:text-white/80 hover:bg-white/5 transition-all duration-200 rounded"
+          className="px-4 py-2 text-xs font-mono text-white/60 hover:text-white hover:bg-white/10 border border-white/15 hover:border-white/40 transition-all duration-300 rounded-sm flex items-center gap-2 group"
           aria-label="Skip animations"
         >
-          (skip)
+          <span>Skip intro</span>
+          <svg
+            className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+          </svg>
         </button>
+        <span className="text-[10px] font-mono text-white/25 hidden sm:inline">ESC or click to skip</span>
       </div>
     </div>
   );
