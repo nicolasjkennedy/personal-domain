@@ -77,7 +77,9 @@ export const siteContent: SiteContent = {
       degree: "B.S. Computer Engineering",
       dates: "Expected May 2028",
       highlights: [
-        "GPA: 3.7"
+        "GPA: 3.7",
+        "Division 1 Collegiate Athlete: Track and Field (2024-2025)",
+        "Organizations: URI Cybersecurity Club, Rhody Exchange, Rhody Christian Fellowship"
       ]
     },
     {
@@ -86,6 +88,7 @@ export const siteContent: SiteContent = {
       dates: "Graduated May 2024",
       highlights: [
         "GPA: 4.3 | Class Rank: 12/151"
+        
       ]
     }
   ],
@@ -96,7 +99,7 @@ export const siteContent: SiteContent = {
       dates: "Founded 2026",
       bullets: [
         "Co-founded and launched an AI-powered search platform for finding local and online service providers",
-        "Lead development of web scraping, data ingestion, and AI-powered categorization systems",
+        "Lead development user experience and interface design, backend architecture, and database design",
         "Architected scalable backend infrastructure using PostgreSQL and vector search technologies",
         "Aggregate service data from multiple sources and generate clean, concise business summaries",
         "Built platform to replace fragmented searches across Yelp, Google, and social media with a single interface"
@@ -111,19 +114,21 @@ export const siteContent: SiteContent = {
         "Deploy and maintain campus networking infrastructure (switches, access points, servers)",
         "Troubleshoot connectivity and system issues for staff and students",
         "Collaborate with engineers on VLANs, cabling, and monitoring across buildings",
-        "Document configurations and operational procedures"
+        "Document configurations and operational procedures",
+        "Develop and maintain network automation scripts to automate repetitive tasks"
       ],
       tech: ["Cisco IOS", "TCP/IP", "VLANs", "Network Infrastructure"]
     },
     {
       company: "City of Newport IT Department",
       role: "Network Engineering Intern",
-      dates: "2022",
+      dates: "2022-2023",
       bullets: [
         "Supported configuration and maintenance of routers, switches, and endpoints",
         "Managed live broadcasting of city meetings using OBS and IP camera systems",
         "Responded to helpdesk tickets involving hardware and network troubleshooting",
-        "Assisted with system recovery following a major cyber incident"
+        "Assisted with system recovery following a major cybersecurity incident",
+
       ],
       tech: ["Network Configuration", "OBS Studio", "IP Camera Systems", "Helpdesk Support"]
     }
@@ -155,9 +160,9 @@ export const siteContent: SiteContent = {
       featured: false
     },
     {
-      name: "Event Management System",
-      oneLiner: "Web application for coordinating event logistics and scheduling",
-      description: "Built a web application to streamline event coordination workflows. Features include calendar integration, inventory tracking, and automated client communication. Designed to handle multiple concurrent events with real-time updates.",
+      name: "Real-Time Weather Dashboard",
+      oneLiner: "Interactive weather dashboard using public APIs and dynamic visualizations",
+      description: "Built a responsive weather dashboard that fetches real-time data from public weather APIs and displays current conditions, hourly forecasts, and multi-day outlooks. Features include geolocation-based auto-detection, city search with autocomplete, animated weather icons, and persistent user preferences via local storage.",
       tech: ["JavaScript", "HTML", "CSS", "Web APIs"],
       featured: false
     }
