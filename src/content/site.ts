@@ -160,9 +160,9 @@ export const siteContent: SiteContent = {
       featured: false
     },
     {
-      name: "Real-Time Weather Dashboard",
-      oneLiner: "Interactive weather dashboard using public APIs and dynamic visualizations",
-      description: "Built a responsive weather dashboard that fetches real-time data from public weather APIs and displays current conditions, hourly forecasts, and multi-day outlooks. Features include geolocation-based auto-detection, city search with autocomplete, animated weather icons, and persistent user preferences via local storage.",
+      name: "Event Management System",
+      oneLiner: "Web application for coordinating event logistics and scheduling",
+      description: "Built a web application to streamline event coordination workflows. Features include calendar integration, inventory tracking, and automated client communication. Designed to handle multiple concurrent events with real-time updates.",
       tech: ["JavaScript", "HTML", "CSS", "Web APIs"],
       featured: false
     }
