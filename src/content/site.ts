@@ -166,11 +166,16 @@ export const siteContent: SiteContent = {
       featured: false
     },
     {
-      name: "Event Management System",
-      oneLiner: "Web application for coordinating event logistics and scheduling",
-      description: "Built a web application to streamline event coordination workflows. Features include calendar integration, inventory tracking, and automated client communication. Designed to handle multiple concurrent events with real-time updates.",
-      tech: ["JavaScript", "HTML", "CSS", "Web APIs"],
-      featured: false
+      name: "Personal Portfolio Website",
+      oneLiner: "Personal portfolio website built with Next.js, TypeScript, and Tailwind CSS",
+      description: "A minimal, modern developer portfolio built from scratch with Next.js, TypeScript, and Tailwind CSS. Designed with a focus on clean typography, smooth scroll-driven animations, and a responsive layout that works across all devices. ",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+      links: {
+        github: "https://github.com/nicolasjkennedy/personal-domain",
+        live: "https://nicolaskennedy.com"
+      },
+      featured: false,
+      sourceType: "open"
     }
   ],
   certifications: [
