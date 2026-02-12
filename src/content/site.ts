@@ -93,7 +93,7 @@ export const siteContent: SiteContent = {
     {
       company: "Service Surfer LLC",
       role: "Co-Founder",
-      dates: "2025–Present",
+      dates: "Founded 2026",
       bullets: [
         "Co-founded and launched an AI-powered search platform for finding local and online service providers",
         "Lead development of web scraping, data ingestion, and AI-powered categorization systems",
