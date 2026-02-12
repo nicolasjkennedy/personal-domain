@@ -29,8 +29,19 @@ export default function Projects() {
               {featuredProjects.map((project, index) => (
                 <AnimateOnScroll key={index} delay={index * 150}>
                   <div
-                    className="border border-white/10 p-8 lg:p-10 hover:border-white/20 hover:scale-[1.02] transition-all duration-300"
+                    className="relative border border-white/10 p-8 lg:p-10 hover:border-white/20 hover:scale-[1.02] transition-all duration-300"
                   >
+                  {project.sourceType && (
+                    <span
+                      className={`absolute top-4 right-4 px-2.5 py-0.5 text-[10px] font-mono tracking-wide rounded-sm border ${
+                        project.sourceType === "open"
+                          ? "text-blue-400 border-blue-400/30 bg-blue-400/10"
+                          : "text-orange-300 border-orange-300/30 bg-orange-300/10"
+                      }`}
+                    >
+                      {project.sourceType === "open" ? "Open Source" : "Closed Source"}
+                    </span>
+                  )}
                   <div className="space-y-4">
                     <h3 className="text-2xl sm:text-3xl font-bold">
                       {project.name}
@@ -107,8 +118,19 @@ export default function Projects() {
               {otherProjects.map((project, index) => (
                 <AnimateOnScroll key={index} delay={index * 100}>
                   <div
-                    className="border-b border-white/5 pb-8 last:border-0 last:pb-0 hover:border-white/10 transition-colors duration-300"
+                    className="relative border-b border-white/5 pb-8 last:border-0 last:pb-0 hover:border-white/10 transition-colors duration-300"
                   >
+                  {project.sourceType && (
+                    <span
+                      className={`absolute top-0 right-0 px-2.5 py-0.5 text-[10px] font-mono tracking-wide rounded-sm border ${
+                        project.sourceType === "open"
+                          ? "text-blue-400 border-blue-400/30 bg-blue-400/10"
+                          : "text-orange-300 border-orange-300/30 bg-orange-300/10"
+                      }`}
+                    >
+                      {project.sourceType === "open" ? "Open Source" : "Closed Source"}
+                    </span>
+                  )}
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="md:col-span-1">
                       <h3 className="text-xl sm:text-2xl font-bold mb-2">

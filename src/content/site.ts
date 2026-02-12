@@ -32,6 +32,7 @@ export interface Project {
     caseStudy?: string;
   };
   featured?: boolean;
+  sourceType?: "open" | "closed";
 }
 
 export interface Certification {
@@ -143,14 +144,19 @@ export const siteContent: SiteContent = {
       links: {
         live: "https://servicesurfer.app"
       },
-      featured: true
+      featured: true,
+      sourceType: "closed"
     },
     {
-      name: "Network Infrastructure Automation Scripts",
-      oneLiner: "Python automation tools for campus network device management and optimization",
-      description: "Developed a suite of Python scripts to automate repetitive network infrastructure tasks, significantly reducing manual configuration time and human error. Scripts handle access point factory resets and provisioning, switch configuration optimization and validation, bulk device management across multiple campus buildings, and automated backup and restore procedures. These tools streamline day-to-day operations for the IT team and ensure consistent configurations across hundreds of network devices.",
+      name: "Cisco Switch Automated Configuration",
+      oneLiner: "Open-source Python tool for automated Cisco switch provisioning and management",
+      description: "An open-source automation tool built to streamline Cisco switch configuration at scale. Automates the full provisioning workflow — from factory reset to production-ready config — eliminating manual CLI work and reducing human error across campus network deployments. Handles bulk switch configuration, VLAN setup, port security policies, and backup/restore procedures, enabling consistent and repeatable infrastructure management across hundreds of devices.",
       tech: ["Python", "Cisco IOS", "Network Automation", "SSH/Telnet", "Configuration Management"],
-      featured: true
+      links: {
+        github: "https://github.com/nicolasjkennedy/cisco-switch-automated-config"
+      },
+      featured: true,
+      sourceType: "open"
     },
     {
       name: "Network Configuration Parser",
