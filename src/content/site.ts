@@ -168,7 +168,7 @@ export const siteContent: SiteContent = {
     {
       name: "Personal Portfolio Website",
       oneLiner: "Personal portfolio website built with Next.js, TypeScript, and Tailwind CSS",
-      description: "A minimal, modern developer portfolio built from scratch with Next.js, TypeScript, and Tailwind CSS. Designed with a focus on clean typography, smooth scroll-driven animations, and a responsive layout that works across all devices. ",
+      description: "A minimal, modern developer portfolio built from scratch with Next.js, TypeScript, and Tailwind CSS. Designed with a focus on clean typography, smooth scroll-driven animations, and a responsive layout that works across all devices.",
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
       links: {
         github: "https://github.com/nicolasjkennedy/personal-domain",

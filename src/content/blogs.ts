@@ -1,3 +1,9 @@
+export interface BlogImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -5,32 +11,26 @@ export interface BlogPost {
   date: string;
   tags: string[];
   content: string;
+  images?: BlogImage[];
 }
 
+//blog posting area so that I can show what im doing, or like what events i went to, projects etc.
 export const blogPosts: BlogPost[] = [
   {
-    slug: "welcome-to-my-blog",
-    title: "Welcome to My Blog",
+    slug: "first-blog-post",
+    title: "First Blog Post",
     description:
-      "A quick intro to why I'm starting this blog and what you can expect to find here.",
-    date: "2026-02-02",
-    tags: ["Personal", "Announcement"],
+      "This is my first blog post, testing it out.",
+    date: "2026-02-14",
+    tags: ["Testing"],
     content: `
-Starting a blog has been on my to-do list for a while now. As someone who's constantly building, learning, and tinkering with new technologies, I figured it was time to start writing some of it down.
+This is my first blog post. 
 
-## What to Expect
+Testing testing, 1, 2, 3...
 
-This blog will be a mix of:
+Okay I think its working.
 
-- **Technical deep-dives** — breakdowns of projects I'm working on, tools I'm using, and problems I've solved.
-- **Lessons learned** — things I wish I knew earlier, from networking to full-stack development.
-- **Project updates** — progress on Service Surfer, open-source tools, and whatever else I'm building.
-
-## Why Write?
-
-Writing forces you to actually understand what you're doing. If you can explain something clearly, you probably know it well. Plus, if anything I share helps someone else out — that's a win.
-
-Stay tuned for more posts. Thanks for reading.
+On a side note, I am going to use this blog for technical things but also just whatever is on my mind. More than likely more technical and life lessons than anything else.
     `.trim(),
   }
 ];

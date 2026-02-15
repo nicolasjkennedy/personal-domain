@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteContent } from "@/src/content/site";
 import DotFieldBackground from "@/components/DotFieldBackground";
@@ -9,6 +9,12 @@ import ScrollLock from "@/components/ScrollLock";
 const inter = Inter({ 
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -41,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} antialiased bg-[#0a0a0a] text-[#f5f5f5]`} style={{ backgroundColor: '#0a0a0a', color: '#f5f5f5' }}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-[#0a0a0a] text-[#f5f5f5]`} style={{ backgroundColor: '#0a0a0a', color: '#f5f5f5' }}>
         <TypingProvider>
           <ScrollLock />
           <DotFieldBackground 

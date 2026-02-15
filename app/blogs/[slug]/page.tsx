@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { blogPosts } from "@/src/content/blogs";
 import BlogNavigation from "@/components/BlogNavigation";
+import BlogImageGallery from "@/components/BlogImageGallery";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -42,7 +43,6 @@ function renderMarkdown(content: string) {
 
   const processInline = (text: string): React.ReactNode[] => {
     const parts: React.ReactNode[] = [];
-    // Handle **bold** and *italic* and [links](url)
     const regex = /(\*\*(.+?)\*\*|\*(.+?)\*|\[(.+?)\]\((.+?)\))/g;
     let lastIndex = 0;
     let match;
@@ -52,13 +52,14 @@ function renderMarkdown(content: string) {
         parts.push(text.slice(lastIndex, match.index));
       }
       if (match[2]) {
-        // Bold
-        parts.push(<strong key={`b-${match.index}`} className="font-semibold text-[#f5f5f5]">{match[2]}</strong>);
+        parts.push(
+          <strong key={`b-${match.index}`} className="font-semibold text-[#f5f5f5]">
+            {match[2]}
+          </strong>
+        );
       } else if (match[3]) {
-        // Italic
         parts.push(<em key={`i-${match.index}`}>{match[3]}</em>);
       } else if (match[4] && match[5]) {
-        // Link
         parts.push(
           <a
             key={`a-${match.index}`}
@@ -84,7 +85,7 @@ function renderMarkdown(content: string) {
       const text = currentParagraph.join(" ");
       if (text.trim()) {
         elements.push(
-          <p key={key++} className="text-base sm:text-lg opacity-80 leading-relaxed mb-6">
+          <p key={key++} className="text-sm sm:text-base opacity-80 leading-relaxed mb-6">
             {processInline(text)}
           </p>
         );
@@ -98,7 +99,10 @@ function renderMarkdown(content: string) {
       elements.push(
         <ul key={key++} className="space-y-2 mb-6 pl-4">
           {currentList.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-base sm:text-lg opacity-80 leading-relaxed">
+            <li
+              key={i}
+              className="flex items-start gap-3 text-sm sm:text-base opacity-80 leading-relaxed"
+            >
               <span className="text-white/40 mt-1.5 text-xs">●</span>
               <span>{processInline(item)}</span>
             </li>
@@ -112,45 +116,40 @@ function renderMarkdown(content: string) {
   for (const line of lines) {
     const trimmed = line.trim();
 
-    // Empty line - flush current content
     if (trimmed === "") {
       flushList();
       flushParagraph();
       continue;
     }
 
-    // Heading ##
     if (trimmed.startsWith("## ")) {
       flushList();
       flushParagraph();
       elements.push(
-        <h2 key={key++} className="text-2xl sm:text-3xl font-bold tracking-tight mt-10 mb-4">
+        <h2 key={key++} className="text-xl sm:text-2xl font-bold tracking-tight mt-10 mb-4">
           {trimmed.slice(3)}
         </h2>
       );
       continue;
     }
 
-    // Heading ###
     if (trimmed.startsWith("### ")) {
       flushList();
       flushParagraph();
       elements.push(
-        <h3 key={key++} className="text-xl sm:text-2xl font-bold tracking-tight mt-8 mb-3">
+        <h3 key={key++} className="text-lg sm:text-xl font-bold tracking-tight mt-8 mb-3">
           {trimmed.slice(4)}
         </h3>
       );
       continue;
     }
 
-    // List item
     if (trimmed.startsWith("- ")) {
       flushParagraph();
       currentList.push(trimmed.slice(2));
       continue;
     }
 
-    // Regular text - accumulate into paragraph
     flushList();
     currentParagraph.push(trimmed);
   }
@@ -168,12 +167,14 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const hasImages = post.images && post.images.length > 0;
+
   return (
     <main className="min-h-screen">
       <BlogNavigation />
 
       <article className="pt-32 lg:pt-40 pb-20 lg:pb-32 px-6 sm:px-8 lg:px-12">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           {/* Back link */}
           <Link
             href="/blogs/"
@@ -182,8 +183,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             ← Back to Blog
           </Link>
 
-          {/* Header */}
-          <header className="mb-12 lg:mb-16 animate-fade-in-up">
+          {/* Header — always full width */}
+          <header className="mb-12 lg:mb-16 animate-fade-in-up max-w-3xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
               {post.title}
             </h1>
@@ -205,19 +206,44 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="border-b border-white/10" />
           </header>
 
-          {/* Content */}
-          <div className="animate-fade-in-up stagger-2">
-            {renderMarkdown(post.content)}
-          </div>
+          {/* Mobile images — shown above content on small screens */}
+          {hasImages && (
+            <div className="xl:hidden mb-12 animate-fade-in-up stagger-2">
+              <BlogImageGallery images={post.images!} layout="horizontal" />
+            </div>
+          )}
 
-          {/* Footer */}
-          <div className="mt-16 pt-8 border-t border-white/10 animate-fade-in-up stagger-3">
-            <Link
-              href="/blogs/"
-              className="inline-flex items-center gap-2 text-sm font-mono opacity-50 hover:opacity-80 transition-opacity"
-            >
-              ← Back to Blog
-            </Link>
+          {/* Content + Sidebar layout */}
+          <div
+            className={`${
+              hasImages
+                ? "xl:grid xl:grid-cols-[1fr_360px] xl:gap-16"
+                : ""
+            }`}
+          >
+            {/* Blog content — monospaced */}
+            <div className="font-mono animate-fade-in-up stagger-2 max-w-3xl">
+              {renderMarkdown(post.content)}
+
+              {/* Footer */}
+              <div className="mt-16 pt-8 border-t border-white/10">
+                <Link
+                  href="/blogs/"
+                  className="inline-flex items-center gap-2 text-sm font-mono opacity-50 hover:opacity-80 transition-opacity"
+                >
+                  ← Back to Blog
+                </Link>
+              </div>
+            </div>
+
+            {/* Desktop image sidebar — sticky */}
+            {hasImages && (
+              <aside className="hidden xl:block animate-fade-in-up stagger-3">
+                <div className="sticky top-28">
+                  <BlogImageGallery images={post.images!} layout="vertical" />
+                </div>
+              </aside>
+            )}
           </div>
         </div>
       </article>
