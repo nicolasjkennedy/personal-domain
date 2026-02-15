@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { useTyping } from "@/contexts/TypingContext";
 
-const navItems = [
+const sectionItems = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
@@ -11,6 +12,10 @@ const navItems = [
   { label: "Education", href: "#education" },
   { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
+];
+
+const pageItems = [
+  { label: "Blog", href: "/blogs/" },
 ];
 
 export default function Navigation() {
@@ -22,7 +27,7 @@ export default function Navigation() {
     if (!hasStarted) return;
 
     const handleScroll = () => {
-      const sections = navItems.map((item) => item.href.substring(1));
+      const sections = sectionItems.map((item) => item.href.substring(1));
       const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -59,7 +64,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
-            {navItems.map((item, index) => (
+            {sectionItems.map((item, index) => (
               <button
                 key={item.href}
                 onClick={() => handleClick(item.href)}
@@ -73,6 +78,16 @@ export default function Navigation() {
               >
                 {item.label}
               </button>
+            ))}
+            {pageItems.map((item, index) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm lg:text-base font-medium tracking-wide transition-all duration-300 hover:opacity-100 hover:scale-105 opacity-60"
+                style={{ animationDelay: `${(sectionItems.length + index) * 50}ms` }}
+              >
+                {item.label}
+              </Link>
             ))}
           </div>
 
@@ -111,7 +126,7 @@ export default function Navigation() {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden pb-4 space-y-3 border-t border-white/5 pt-4">
-            {navItems.map((item) => (
+            {sectionItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => handleClick(item.href)}
@@ -123,6 +138,16 @@ export default function Navigation() {
               >
                 {item.label}
               </button>
+            ))}
+            {pageItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block w-full text-left text-sm font-medium tracking-wide transition-opacity hover:opacity-70 opacity-60 pl-3"
+              >
+                {item.label}
+              </Link>
             ))}
           </div>
         )}
