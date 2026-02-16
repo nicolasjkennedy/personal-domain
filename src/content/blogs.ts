@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
     slug: "introduction",
     title: "whoami",
     description:
-      "whoami",
+      "read the title",
     date: "2026-02-15",
     tags: ["intro"],
     content: `
@@ -39,6 +39,12 @@ I am currently getting my BS in Computer Engineering doing 18 credits right now 
 Needless to say, I am very busy, but I am blessed. 
 
 I am excited for my future, I want to make real impact and improve lives in a way that glorifies Jesus. I am still growing in my faith and I do want to make sure that my priorities are focused on the correct things.
+
+Also I feel like if I can keep this of a log of what I am doing throughout my life, I think it will be really cool to look back when I am old and all of that.
+
+Internet archive type of thing, hopefully if I keep it updated, if I die someone can keep it running.
+
+I guess I have to be an exceptional person for that to happen, but hey, you never know.
 
     `.trim(),
   }
