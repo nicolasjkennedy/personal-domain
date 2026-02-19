@@ -74,7 +74,7 @@ export default function Hero() {
               <div className="flex flex-wrap gap-4 pt-6 animate-fade-in-up stagger-6">
                 <a
                   href="#projects"
-                  className="px-6 py-3 border border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
+                  className="px-6 py-3 border border-foreground/20 hover:border-foreground/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
                 >
                   View Projects
                 </a>
@@ -83,14 +83,14 @@ export default function Hero() {
                     href={siteContent.socials.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-3 border border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
+                    className="px-6 py-3 border border-foreground/20 hover:border-foreground/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
                   >
                     View GitHub
                   </a>
                 )}
                 <a
                   href="#contact"
-                  className="px-6 py-3 border border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
+                  className="px-6 py-3 border border-foreground/20 hover:border-foreground/40 hover:scale-105 transition-all duration-300 text-sm font-medium tracking-wide"
                 >
                   Contact
                 </a>

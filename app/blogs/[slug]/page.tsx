@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { blogPosts } from "@/src/content/blogs";
+import { blogPosts, getReadingTime } from "@/src/content/blogs";
 import BlogNavigation from "@/components/BlogNavigation";
 import BlogImageGallery from "@/components/BlogImageGallery";
 import { notFound } from "next/navigation";
@@ -192,6 +192,9 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               <time className="text-sm font-mono opacity-50">
                 {formatDate(post.date)}
               </time>
+              <span className="text-xs font-mono opacity-40">
+                {getReadingTime(post.content)}
+              </span>
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
                   <span

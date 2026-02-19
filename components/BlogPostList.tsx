@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import type { BlogPost } from "@/src/content/blogs";
+import { type BlogPost, getReadingTime } from "@/src/content/blogs";
 
 interface BlogPostListProps {
   posts: BlogPost[];
@@ -193,9 +193,14 @@ export default function BlogPostList({ posts }: BlogPostListProps) {
                   <h2 className="text-2xl sm:text-3xl font-bold tracking-tight group-hover:opacity-90 transition-opacity">
                     {post.title}
                   </h2>
-                  <time className="text-sm opacity-50 whitespace-nowrap pt-1">
-                    {formatDate(post.date)}
-                  </time>
+                  <div className="flex items-center gap-3 whitespace-nowrap pt-1">
+                    <time className="text-sm opacity-50">
+                      {formatDate(post.date)}
+                    </time>
+                    <span className="text-xs opacity-40">
+                      {getReadingTime(post.content)}
+                    </span>
+                  </div>
                 </div>
                 <p className="text-sm sm:text-base opacity-70 leading-relaxed mb-4">
                   {post.description}

@@ -148,22 +148,15 @@ export const siteContent: SiteContent = {
       sourceType: "closed"
     },
     {
-      name: "Cisco Switch Automated Configuration",
-      oneLiner: "Open-source Python tool for automated Cisco switch provisioning and management",
-      description: "An open-source automation tool built to streamline Cisco switch configuration at scale. Automates the full provisioning workflow — from factory reset to production-ready config — eliminating manual CLI work and reducing human error across campus network deployments. Handles bulk switch configuration, VLAN setup, port security policies, and backup/restore procedures, enabling consistent and repeatable infrastructure management across hundreds of devices.",
-      tech: ["Python", "Cisco IOS", "Network Automation", "SSH/Telnet", "Configuration Management"],
+      name: "Cisco Switch Provisioning CLI",
+      oneLiner: "Zero-to-production switch provisioning tool with dry-run support and modular config sections",
+      description: "A lightweight, dependency-free Python CLI that takes a Cisco switch from factory reset to fully production-ready in a single command. Supports granular section targeting — VLANs, interfaces, routing, and ACLs can each be applied independently or together. Features a built-in dry-run mode that previews every command before it touches the switch, making it safe to iterate on configurations in live environments. Leverages PuTTY's plink for SSH transport, keeping the tool portable with zero pip dependencies.",
+      tech: ["Python", "Cisco IOS", "SSH (plink)", "Network Automation", "CLI"],
       links: {
         github: "https://github.com/nicolasjkennedy/cisco-switch-automated-config"
       },
       featured: true,
       sourceType: "open"
-    },
-    {
-      name: "Network Configuration Parser",
-      oneLiner: "CLI tool for analyzing and validating Cisco IOS configurations",
-      description: "Created a Python utility to parse Cisco router and switch configurations, identify potential issues, and generate reports. Helps network engineers quickly audit configurations and ensure compliance with best practices.",
-      tech: ["Python", "CLI Tools", "Network Configuration", "File Processing"],
-      featured: false
     },
     {
       name: "Personal Portfolio Website",

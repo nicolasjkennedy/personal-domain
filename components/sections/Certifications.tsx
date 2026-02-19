@@ -5,7 +5,7 @@ export default function Certifications() {
   return (
     <section
       id="certifications"
-      className="py-20 lg:py-32 px-6 sm:px-8 lg:px-12 border-t border-white/5"
+      className="py-20 lg:py-32 px-6 sm:px-8 lg:px-12 border-t border-foreground/5"
     >
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
@@ -18,7 +18,7 @@ export default function Certifications() {
           {siteContent.certifications.map((cert, index) => (
             <AnimateOnScroll key={index} delay={index * 100}>
               <div
-                className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 py-4 border-b border-white/5 last:border-0 hover:border-white/10 transition-colors duration-300 group"
+                className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 py-4 border-b border-foreground/5 last:border-0 hover:border-foreground/10 transition-colors duration-300 group"
               >
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-1 group-hover:opacity-90 transition-opacity">
@@ -33,7 +33,7 @@ export default function Certifications() {
                     href={cert.credentialLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm opacity-70 hover:opacity-100 border-b border-white/20 hover:border-white/40 transition-colors"
+                    className="text-sm opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors"
                   >
                     Verify →
                   </a>

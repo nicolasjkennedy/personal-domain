@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTyping } from "@/contexts/TypingContext";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const sectionItems = [
   { label: "About", href: "#about" },
@@ -40,7 +41,7 @@ export default function Navigation() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [hasStarted]);
@@ -53,13 +54,12 @@ export default function Navigation() {
     }
   };
 
-  // Don't render navigation until typing has started
   if (!hasStarted) {
     return null;
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-sm border-b border-white/5 animate-fade-in">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-foreground/5 animate-fade-in">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Desktop Navigation */}
@@ -70,7 +70,7 @@ export default function Navigation() {
                 onClick={() => handleClick(item.href)}
                 className={`text-sm lg:text-base font-medium tracking-wide transition-all duration-300 hover:opacity-100 hover:scale-105 ${
                   activeSection === item.href
-                    ? "opacity-100 border-b border-white"
+                    ? "opacity-100 border-b border-foreground"
                     : "opacity-60"
                 }`}
                 style={{ animationDelay: `${index * 50}ms` }}
@@ -91,48 +91,51 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground opacity-80 hover:opacity-100 transition-opacity"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle mobile menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {/* Right side: theme toggle + mobile menu */}
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="md:hidden opacity-80 hover:opacity-100 transition-opacity"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+              aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isMobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden pb-4 space-y-3 border-t border-white/5 pt-4">
+          <div className="md:hidden pb-4 space-y-3 border-t border-foreground/5 pt-4">
             {sectionItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => handleClick(item.href)}
                 className={`block w-full text-left text-sm font-medium tracking-wide transition-opacity hover:opacity-70 ${
                   activeSection === item.href
-                    ? "opacity-100 border-l-2 border-white pl-3"
+                    ? "opacity-100 border-l-2 border-foreground pl-3"
                     : "opacity-60 pl-3"
                 }`}
               >

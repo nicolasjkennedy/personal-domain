@@ -312,8 +312,8 @@ function TechCard({
           transition-all duration-300 ease-out
           ${
             isHovered
-              ? "border-white/30 bg-white/[0.06] text-white"
-              : "border-white/10 bg-white/[0.02] text-white/60"
+              ? "border-foreground/30 bg-foreground/[0.06] text-foreground"
+              : "border-foreground/10 bg-foreground/[0.02] text-foreground/60"
           }
         `}
         style={{ animationDelay: `${index * 30}ms` }}
@@ -321,7 +321,7 @@ function TechCard({
         {icon && (
           <span
             className={`transition-colors duration-300 ${
-              isHovered ? "text-white/80" : "text-white/30"
+              isHovered ? "text-foreground/80" : "text-foreground/30"
             }`}
           >
             {icon}
@@ -335,21 +335,21 @@ function TechCard({
         <div
           className={`
             absolute left-1/2 -translate-x-1/2 z-50
-            px-3 py-2 bg-[#141414] border border-white/15 rounded-md
-            text-xs font-mono text-white/70 whitespace-nowrap
+            px-3 py-2 bg-[#141414] border border-foreground/15 rounded-md
+            text-xs font-mono text-foreground/70 whitespace-nowrap
             shadow-lg pointer-events-none animate-fade-in
             ${tooltipPos === "above" ? "bottom-full mb-2" : "top-full mt-2"}
           `}
         >
-          <div className="text-white/40 mb-1">Used in:</div>
+          <div className="text-foreground/40 mb-1">Used in:</div>
           {tech.sources.map((source, i) => (
-            <div key={i} className="text-white/70">
+            <div key={i} className="text-foreground/70">
               {source}
             </div>
           ))}
           <div
             className={`
-              absolute left-1/2 -translate-x-1/2 w-2 h-2 bg-[#141414] border-white/15 rotate-45
+              absolute left-1/2 -translate-x-1/2 w-2 h-2 bg-[#141414] border-foreground/15 rotate-45
               ${tooltipPos === "above" ? "bottom-0 translate-y-1/2 border-r border-b" : "top-0 -translate-y-1/2 border-l border-t"}
             `}
           />
@@ -371,7 +371,7 @@ export default function TechStack() {
   return (
     <section
       id="skills"
-      className="py-20 lg:py-32 px-6 sm:px-8 lg:px-12 border-t border-white/5"
+      className="py-20 lg:py-32 px-6 sm:px-8 lg:px-12 border-t border-foreground/5"
     >
       <div className="max-w-5xl mx-auto">
         <AnimateOnScroll>
@@ -394,8 +394,8 @@ export default function TechStack() {
                 px-4 py-2 text-xs font-mono border rounded-sm transition-all duration-300
                 ${
                   !activeFilter
-                    ? "border-white/50 bg-white/10 text-white"
-                    : "border-white/15 text-white/50 hover:border-white/30 hover:text-white/80"
+                    ? "border-foreground/50 bg-foreground/10 text-foreground"
+                    : "border-foreground/15 text-foreground/50 hover:border-foreground/30 hover:text-foreground/80"
                 }
               `}
             >
@@ -413,8 +413,8 @@ export default function TechStack() {
                   px-4 py-2 text-xs font-mono border rounded-sm transition-all duration-300
                   ${
                     activeFilter === cat.category
-                      ? "border-white/50 bg-white/10 text-white"
-                      : "border-white/15 text-white/50 hover:border-white/30 hover:text-white/80"
+                      ? "border-foreground/50 bg-foreground/10 text-foreground"
+                      : "border-foreground/15 text-foreground/50 hover:border-foreground/30 hover:text-foreground/80"
                   }
                 `}
               >
@@ -430,7 +430,7 @@ export default function TechStack() {
           {filteredCategories.map((cat, catIndex) => (
             <AnimateOnScroll key={cat.category} delay={150 + catIndex * 100}>
               <div>
-                <h3 className="text-sm font-mono text-white/40 mb-4 tracking-wider uppercase">
+                <h3 className="text-sm font-mono text-foreground/40 mb-4 tracking-wider uppercase">
                   {cat.category}
                 </h3>
                 <div className="flex flex-wrap gap-3">
@@ -449,8 +449,8 @@ export default function TechStack() {
 
         {/* Legend */}
         <AnimateOnScroll delay={400}>
-          <div className="mt-12 pt-8 border-t border-white/5">
-            <div className="flex flex-wrap items-center gap-6 text-xs font-mono text-white/30">
+          <div className="mt-12 pt-8 border-t border-foreground/5">
+            <div className="flex flex-wrap items-center gap-6 text-xs font-mono text-foreground/30">
               <span>Hover for context</span>
             </div>
           </div>

@@ -5,7 +5,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="py-20 lg:py-32 px-6 sm:px-8 lg:px-12 border-t border-white/5"
+      className="py-20 lg:py-32 px-6 sm:px-8 lg:px-12 border-t border-foreground/5"
     >
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
@@ -17,8 +17,8 @@ export default function Education() {
         <div className="space-y-12 lg:space-y-16">
           {siteContent.education.map((edu, index) => (
             <AnimateOnScroll key={index} delay={index * 100}>
-              <div className="relative pl-8 border-l border-white/10 pb-8 last:pb-0 group">
-                <div className="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-white/20 border border-white/40 group-hover:bg-white/40 transition-colors duration-300"></div>
+              <div className="relative pl-8 border-l border-foreground/10 pb-8 last:pb-0 group">
+                <div className="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-foreground/20 border border-foreground/40 group-hover:bg-foreground/40 transition-colors duration-300"></div>
                 
                 <div className="space-y-4">
                   <div>

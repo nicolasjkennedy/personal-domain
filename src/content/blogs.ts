@@ -14,6 +14,12 @@ export interface BlogPost {
   images?: BlogImage[];
 }
 
+export function getReadingTime(content: string): string {
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.max(1, Math.round(words / 230));
+  return `${minutes} min read`;
+}
+
 //blog posting area so that I can show what im doing, or like what events i went to, projects etc.
 export const blogPosts: BlogPost[] = [
   {

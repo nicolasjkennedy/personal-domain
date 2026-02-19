@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 lg:py-32 px-6 sm:px-8 lg:px-12 border-t border-white/5"
+      className="py-20 lg:py-32 px-6 sm:px-8 lg:px-12 border-t border-foreground/5"
     >
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
@@ -27,7 +27,7 @@ export default function Contact() {
               {siteContent.socials.email && (
                 <a
                   href={siteContent.socials.email}
-                  className="text-base opacity-70 hover:opacity-100 border-b border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 inline-block"
+                  className="text-base opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 hover:scale-105 transition-all duration-300 inline-block"
                 >
                   Email
                 </a>
@@ -37,7 +37,7 @@ export default function Contact() {
                   href={siteContent.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base opacity-70 hover:opacity-100 border-b border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 inline-block"
+                  className="text-base opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 hover:scale-105 transition-all duration-300 inline-block"
                 >
                   LinkedIn
                 </a>
@@ -47,7 +47,7 @@ export default function Contact() {
                   href={siteContent.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base opacity-70 hover:opacity-100 border-b border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 inline-block"
+                  className="text-base opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 hover:scale-105 transition-all duration-300 inline-block"
                 >
                   GitHub
                 </a>
@@ -57,7 +57,7 @@ export default function Contact() {
                   href={siteContent.socials.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base opacity-70 hover:opacity-100 border-b border-white/20 hover:border-white/40 hover:scale-105 transition-all duration-300 inline-block"
+                  className="text-base opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 hover:scale-105 transition-all duration-300 inline-block"
                 >
                   Website
                 </a>
@@ -70,7 +70,7 @@ export default function Contact() {
                 <a
                   href={siteContent.socials.resume}
                   download
-                  className="inline-flex items-center gap-3 px-6 py-3 border border-white/20 hover:border-white/40 hover:bg-white/5 hover:scale-105 transition-all duration-300 text-sm font-mono tracking-wide group"
+                  className="inline-flex items-center gap-3 px-6 py-3 border border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5 hover:scale-105 transition-all duration-300 text-sm font-mono tracking-wide group"
                 >
                   <svg
                     className="w-4 h-4 opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:translate-y-0.5"
@@ -95,7 +95,7 @@ export default function Contact() {
 
         {/* Footer */}
         <AnimateOnScroll delay={200}>
-          <div className="pt-8 border-t border-white/5">
+          <div className="pt-8 border-t border-foreground/5">
             <p className="text-sm opacity-50 font-mono">
               © {currentYear} {siteContent.name}. All rights reserved.
             </p>

@@ -196,7 +196,8 @@ export default function DotFieldBackground({
       
       // Only update every Nth frame to reduce CPU usage
       if (frameCount % FRAME_SKIP === 0) {
-        ctx.fillStyle = "#0a0a0a";
+        const isDark = document.documentElement.classList.contains("dark");
+        ctx.fillStyle = isDark ? "#0a0a0a" : "#fafafa";
         ctx.fillRect(0, 0, width, height);
 
         const mouse = mouseRef.current;
@@ -236,7 +237,9 @@ export default function DotFieldBackground({
           // Draw particle
           ctx.beginPath();
           ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(245, 245, 245, ${particle.opacity})`;
+          ctx.fillStyle = isDark
+            ? `rgba(245, 245, 245, ${particle.opacity})`
+            : `rgba(20, 20, 20, ${particle.opacity * 0.4})`;
           ctx.fill();
         });
 
@@ -265,7 +268,7 @@ export default function DotFieldBackground({
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none"
       style={{
-        background: "#0a0a0a",
+        background: "var(--background)",
         zIndex: 0,
         position: "fixed",
       }}

@@ -130,7 +130,7 @@ export default function DotPortrait({
 
   if (error) {
     return (
-      <div className={`relative w-full h-full rounded-2xl overflow-hidden bg-white/5 flex items-center justify-center ${className}`}>
+      <div className={`relative w-full h-full rounded-2xl overflow-hidden bg-foreground/5 flex items-center justify-center ${className}`}>
         <p className="text-xs opacity-50">Image failed to load</p>
       </div>
     );
@@ -139,8 +139,8 @@ export default function DotPortrait({
   return (
     <div className={`relative w-full h-full ${className}`}>
       {isLoading && (
-        <div className="absolute inset-0 bg-white/5 flex items-center justify-center rounded-2xl">
-          <div className="w-8 h-8 border-2 border-white/20 border-t-white/60 rounded-full animate-spin"></div>
+        <div className="absolute inset-0 bg-foreground/5 flex items-center justify-center rounded-2xl">
+          <div className="w-8 h-8 border-2 border-foreground/20 border-t-white/60 rounded-full animate-spin"></div>
         </div>
       )}
       <canvas

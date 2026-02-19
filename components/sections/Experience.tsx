@@ -18,7 +18,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-20 lg:py-32 px-6 sm:px-8 lg:px-12 border-t border-white/5"
+      className="py-20 lg:py-32 px-6 sm:px-8 lg:px-12 border-t border-foreground/5"
     >
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
@@ -33,8 +33,8 @@ export default function Experience() {
 
             return (
               <AnimateOnScroll key={index} delay={index * 100}>
-                <div className="relative pl-8 border-l border-white/10 pb-8 last:pb-0 group">
-                  <div className="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-white/20 border border-white/40 group-hover:bg-white/40 transition-colors duration-300"></div>
+                <div className="relative pl-8 border-l border-foreground/10 pb-8 last:pb-0 group">
+                  <div className="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-foreground/20 border border-foreground/40 group-hover:bg-foreground/40 transition-colors duration-300"></div>
 
                   <div className="space-y-4">
                     <div>
@@ -59,14 +59,14 @@ export default function Experience() {
 
                     {relatedProjects.length > 0 && (
                       <div className="pt-4 space-y-3">
-                        <p className="text-xs font-mono text-white/40 tracking-wider uppercase">
+                        <p className="text-xs font-mono text-foreground/40 tracking-wider uppercase">
                           Related Projects
                         </p>
                         <div className="grid gap-3">
                           {relatedProjects.map((project, pIndex) => (
                             <div
                               key={pIndex}
-                              className="border border-white/10 rounded-sm p-4 hover:border-white/20 transition-colors duration-300"
+                              className="border border-foreground/10 rounded-sm p-4 hover:border-foreground/20 transition-colors duration-300"
                             >
                               <div className="flex items-start justify-between gap-4">
                                 <div className="min-w-0">
@@ -80,7 +80,7 @@ export default function Experience() {
                                         href={project.links.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-xs opacity-50 hover:opacity-100 border-b border-white/20 hover:border-white/40 transition-colors whitespace-nowrap"
+                                        className="text-xs opacity-50 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors whitespace-nowrap"
                                       >
                                         GitHub →
                                       </a>
@@ -90,7 +90,7 @@ export default function Experience() {
                                         href={project.links.live}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-xs opacity-50 hover:opacity-100 border-b border-white/20 hover:border-white/40 transition-colors whitespace-nowrap"
+                                        className="text-xs opacity-50 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors whitespace-nowrap"
                                       >
                                         Live →
                                       </a>
@@ -103,7 +103,7 @@ export default function Experience() {
                                   {project.tech.map((tech, tIndex) => (
                                     <span
                                       key={tIndex}
-                                      className="px-2 py-0.5 text-[10px] font-mono border border-white/15 rounded-sm text-white/50"
+                                      className="px-2 py-0.5 text-[10px] font-mono border border-foreground/15 rounded-sm text-foreground/50"
                                     >
                                       {tech}
                                     </span>

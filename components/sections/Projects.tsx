@@ -8,7 +8,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 lg:py-32 px-6 sm:px-8 lg:px-12 border-t border-white/5"
+      className="py-20 lg:py-32 px-6 sm:px-8 lg:px-12 border-t border-foreground/5"
     >
       <div className="max-w-7xl mx-auto">
         <AnimateOnScroll>
@@ -29,7 +29,7 @@ export default function Projects() {
               {featuredProjects.map((project, index) => (
                 <AnimateOnScroll key={index} delay={index * 150}>
                   <div
-                    className="relative border border-white/10 p-8 lg:p-10 hover:border-white/20 hover:scale-[1.02] transition-all duration-300"
+                    className="relative border border-foreground/10 p-8 lg:p-10 hover:border-foreground/20 hover:scale-[1.02] transition-all duration-300"
                   >
                   {project.sourceType && (
                     <span
@@ -56,7 +56,7 @@ export default function Projects() {
                         {project.tech.map((tech, tIndex) => (
                           <span
                             key={tIndex}
-                            className="px-3 py-1 text-xs font-mono border border-white/20 rounded-sm opacity-70 hover:opacity-100 hover:border-white/40 transition-all duration-300 cursor-default"
+                            className="px-3 py-1 text-xs font-mono border border-foreground/20 rounded-sm opacity-70 hover:opacity-100 hover:border-foreground/40 transition-all duration-300 cursor-default"
                           >
                             {tech}
                           </span>
@@ -71,7 +71,7 @@ export default function Projects() {
                             href={project.links.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm opacity-70 hover:opacity-100 border-b border-white/20 hover:border-white/40 transition-colors"
+                            className="text-sm opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors"
                           >
                             GitHub →
                           </a>
@@ -81,7 +81,7 @@ export default function Projects() {
                             href={project.links.live}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm opacity-70 hover:opacity-100 border-b border-white/20 hover:border-white/40 transition-colors"
+                            className="text-sm opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors"
                           >
                             Live Demo →
                           </a>
@@ -91,7 +91,7 @@ export default function Projects() {
                             href={project.links.caseStudy}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm opacity-70 hover:opacity-100 border-b border-white/20 hover:border-white/40 transition-colors"
+                            className="text-sm opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors"
                           >
                             Case Study →
                           </a>
@@ -118,7 +118,7 @@ export default function Projects() {
               {otherProjects.map((project, index) => (
                 <AnimateOnScroll key={index} delay={index * 100}>
                   <div
-                    className="border-b border-white/5 pb-8 last:border-0 last:pb-0 hover:border-white/10 transition-colors duration-300"
+                    className="border-b border-foreground/5 pb-8 last:border-0 last:pb-0 hover:border-foreground/10 transition-colors duration-300"
                   >
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="md:col-span-1">
@@ -147,7 +147,7 @@ export default function Projects() {
                           {project.tech.map((tech, tIndex) => (
                             <span
                               key={tIndex}
-                              className="px-3 py-1 text-xs font-mono border border-white/20 rounded-sm opacity-70 hover:opacity-100 hover:border-white/40 transition-all duration-300 cursor-default"
+                              className="px-3 py-1 text-xs font-mono border border-foreground/20 rounded-sm opacity-70 hover:opacity-100 hover:border-foreground/40 transition-all duration-300 cursor-default"
                             >
                               {tech}
                             </span>
@@ -161,7 +161,7 @@ export default function Projects() {
                               href={project.links.github}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-sm opacity-70 hover:opacity-100 border-b border-white/20 hover:border-white/40 transition-colors"
+                              className="text-sm opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors"
                             >
                               GitHub →
                             </a>
@@ -171,7 +171,7 @@ export default function Projects() {
                               href={project.links.live}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-sm opacity-70 hover:opacity-100 border-b border-white/20 hover:border-white/40 transition-colors"
+                              className="text-sm opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors"
                             >
                               Live →
                             </a>
