@@ -13,7 +13,20 @@ export interface BlogPost {
   content: string;
   images?: BlogImage[];
 }
+/*
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+slug:               #this is what is in the url, so it has to be unique, and it should be something that describes the content of the blog post, and it should be easy to remember.
+title:              #this is the title of the blog post, it should be something that grabs the attention of the reader and makes them want to read the post.
+description:        #this is a short summary of the blog post, it should be something that gives the reader an idea of what the post is about and makes them want to read it.
+date:               #this is the date that the blog post was published, it should be in the format of YYYY-MM-DD, and it should be the date that the post was actually published, not the date that it was written.
+tags:               #this is an array of tags that are relevant to the blog post, it should be something that describes the content of the post and makes it easier for people to find the post when they are searching for something related to it.
+content:            #this is the actual content of the blog post, it should be something that is well written and easy to read, it should be something that provides value to the reader and makes them want to read more of your posts.
+images:             #this is an array of images that are relevant to the blog post, it should be something that enhances the content of the post and makes it more visually appealing, it should be something that is relevant to the content of the post and adds value to the reader, it should also have a caption that describes the image and its relevance to the content of the post.
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+this is how to make the actual blog post: fill out all of the fields in the BlogPost interface, and then add it to the blogPosts array. Make sure that the slug is unique and that the date is in the correct format. Also, make sure that the content is well written and provides value to the reader. If you want to add images, make sure that they are relevant to the content of the post and that they have a caption that describes their relevance to the content of the post.
+*/
 
+//This is a function that calculates the reading time.
 export function getReadingTime(content: string): string {
   const words = content.trim().split(/\s+/).length;
   const minutes = Math.max(1, Math.round(words / 230));
@@ -25,8 +38,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "introduction",
     title: "whoami",
-    description:
-      "read the title",
+    description:" ",
     date: "2026-02-15",
     tags: ["intro"],
     content: `
@@ -54,4 +66,5 @@ I guess I have to be an exceptional person for that to happen, but hey, you neve
 
     `.trim(),
   }
+  
 ];
