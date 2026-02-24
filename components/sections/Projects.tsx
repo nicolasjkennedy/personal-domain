@@ -36,10 +36,16 @@ export default function Projects() {
                       className={`absolute top-4 right-4 px-2.5 py-0.5 text-[10px] font-mono tracking-wide rounded-sm border ${
                         project.sourceType === "open"
                           ? "text-blue-400 border-blue-400/30 bg-blue-400/10"
+                          : project.sourceType === "inDevelopment"
+                          ? "text-green-400 border-green-400/30 bg-green-400/10"
                           : "text-orange-300 border-orange-300/30 bg-orange-300/10"
                       }`}
                     >
-                      {project.sourceType === "open" ? "Open Source" : "Closed Source"}
+                      {project.sourceType === "open"
+                        ? "Open Source"
+                        : project.sourceType === "inDevelopment"
+                        ? "In Development"
+                        : "Closed Source"}
                     </span>
                   )}
                   <div className="space-y-4">
@@ -131,10 +137,16 @@ export default function Projects() {
                           className={`inline-block mt-3 px-2.5 py-0.5 text-[10px] font-mono tracking-wide rounded-sm border ${
                             project.sourceType === "open"
                               ? "text-blue-400 border-blue-400/30 bg-blue-400/10"
+                              : project.sourceType === "inDevelopment"
+                              ? "text-green-400 border-green-400/30 bg-green-400/10"
                               : "text-orange-300 border-orange-300/30 bg-orange-300/10"
                           }`}
                         >
-                          {project.sourceType === "open" ? "Open Source" : "Closed Source"}
+                          {project.sourceType === "open"
+                            ? "Open Source"
+                            : project.sourceType === "inDevelopment"
+                            ? "In Development"
+                            : "Closed Source"}
                         </span>
                       )}
                     </div>

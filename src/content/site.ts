@@ -32,7 +32,7 @@ export interface Project {
     caseStudy?: string;
   };
   featured?: boolean;
-  sourceType?: "open" | "closed";
+  sourceType?: "open" | "closed" | "inDevelopment";
 }
 
 export interface Certification {
@@ -169,6 +169,15 @@ export const siteContent: SiteContent = {
       },
       featured: false,
       sourceType: "open"
+    },
+    {
+      name: "AiTutorMe",
+      oneLiner: "AI-powered platform that teaches you any topic through interactive slideshows and voice",
+      description: "AiTutorMe is an AI-powered learning platform that takes a prompt or uploaded classwork and generates an interactive slideshow to teach you the material. It walks you through each concept step by step, and you can interrupt at any point using your voice to ask questions, request clarification, or steer the lesson. Designed to make learning feel like a one-on-one tutoring session.",
+      tech: ["TypeScript", "Next.js", "React", "Tailwind CSS", "Gemini API", "Supabase", "Web Speech API", "WebSockets", "Node.js", "REST APIs", "Vercel", "OAuth 2.0", "Prisma"],
+      links: {},
+      featured: false,
+      sourceType: "inDevelopment"
     }
   ],
   certifications: [
