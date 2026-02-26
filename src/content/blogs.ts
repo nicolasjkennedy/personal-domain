@@ -81,7 +81,7 @@ n0conflict is designed to be easy to use and integrate into existing workflows. 
 
 I am really proud of this project and I hope that it can be useful to other developers. If you're interested in learning more about n0conflict or want to contribute to the project, you can check out the GitHub repository.
 
-you can also install n0conflict using pip: **pip install n0conflict**
+You can install n0conflict using pip: pip install n0conflict
     
 `.trim(),
 
