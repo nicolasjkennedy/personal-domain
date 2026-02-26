@@ -14,16 +14,62 @@ export interface BlogPost {
   images?: BlogImage[];
 }
 /*
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-slug:               #this is what is in the url, so it has to be unique, and it should be something that describes the content of the blog post, and it should be easy to remember.
-title:              #this is the title of the blog post, it should be something that grabs the attention of the reader and makes them want to read the post.
-description:        #this is a short summary of the blog post, it should be something that gives the reader an idea of what the post is about and makes them want to read it.
-date:               #this is the date that the blog post was published, it should be in the format of YYYY-MM-DD, and it should be the date that the post was actually published, not the date that it was written.
-tags:               #this is an array of tags that are relevant to the blog post, it should be something that describes the content of the post and makes it easier for people to find the post when they are searching for something related to it.
-content:            #this is the actual content of the blog post, it should be something that is well written and easy to read, it should be something that provides value to the reader and makes them want to read more of your posts.
-images:             #this is an array of images that are relevant to the blog post, it should be something that enhances the content of the post and makes it more visually appealing, it should be something that is relevant to the content of the post and adds value to the reader, it should also have a caption that describes the image and its relevance to the content of the post.
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-this is how to make the actual blog post: fill out all of the fields in the BlogPost interface, and then add it to the blogPosts array. Make sure that the slug is unique and that the date is in the correct format. Also, make sure that the content is well written and provides value to the reader. If you want to add images, make sure that they are relevant to the content of the post and that they have a caption that describes their relevance to the content of the post.
+================================================================================
+  BLOG POST GUIDE
+================================================================================
+
+FIELDS
+------
+slug        - URL path (must be unique, e.g. "my-first-post")
+title       - Post title shown on the page
+description - Short summary shown in previews/listings
+date        - Publish date in YYYY-MM-DD format
+tags        - Array of relevant tags, e.g. ["open-source", "project"]
+content     - Full post body written in Markdown (see below)
+images      - Optional array of { src, alt, caption? } objects
+
+HOW TO ADD A POST
+-----------------
+Copy this template and add it to the top of the blogPosts array:
+
+  {
+    slug: "your-slug-here",
+    title: "Your Title Here",
+    description: "A short summary of the post.",
+    date: "YYYY-MM-DD",
+    tags: ["tag1", "tag2"],
+    content: `
+Your content here...
+    `.trim(),
+  },
+
+MARKDOWN FORMATTING (for the content field)
+--------------------------------------------
+The content field supports Markdown. Here are the most useful patterns:
+
+  ## Section Header       →  <h2>
+  ### Smaller Header      →  <h3>
+
+  **bold text**           →  bold
+  *italic text*           →  italic
+
+  - item one              →  bullet list
+  - item two
+
+  1. first                →  numbered list
+  2. second
+
+  `inline code`           →  inline code snippet
+
+  ```bash                 →  fenced code block (specify language for highlighting)
+  pip install something
+  ```
+
+  [link text](https://url)  →  hyperlink
+
+  Leave a blank line between paragraphs — single line breaks are ignored.
+
+================================================================================
 */
 
 //This is a function that calculates the reading time.
@@ -64,6 +110,8 @@ Internet archive type of thing, hopefully if I keep it updated, if I die someone
 
 I guess I have to be an exceptional person for that to happen, but hey, you never know.
 
+
+
     `.trim(),
   }, 
   {
@@ -73,19 +121,59 @@ I guess I have to be an exceptional person for that to happen, but hey, you neve
   date: "2026-02-26",
   tags: ["open-source","n0conflict"],
   content:`
-I am excited to announce the release of my first open-source software project, n0conflict. n0conflict is an AI-powered merge conflict resolver that uses machine learning algorithms to analyze code changes and automatically resolve merge conflicts in a way that minimizes the risk of introducing bugs or errors.
+I am excited to announce the release of my first open-source software project, **n0conflict** — an AI-powered merge conflict resolver that automatically resolves merge conflicts to minimize the risk of introducing bugs or errors.
 
-I've been really interested in open-source software recently, and I wanted to create something that could be useful to other developers. Merge conflicts are a common problem that developers face when working on collaborative projects, and I wanted to create a tool that could help make the process of resolving them easier and more efficient.
+## How It Works
 
-The idea of open-source is such a cool thing to me, people volunteering to make the world a better place. The funny thing that people don't understand is that the entire internet is basically propped up on programs people weren't even paid to create/maintain.
+\`\`\`
+START: Developer has a merge conflict in a file
 
-n0conflict is designed to be easy to use and integrate into existing workflows. It can be used as a standalone tool or integrated into popular version control systems like Git. The tool uses machine learning algorithms to analyze code changes and automatically resolve merge conflicts in a way that minimizes the risk of introducing bugs or errors.
+         ↓
 
-I am really proud of this project and I hope that it can be useful to other developers. If you're interested in learning more about n0conflict or want to contribute to the project, you can check out the GitHub repository.
+  Run: n0conflict resolve app.py --write
 
-You can install n0conflict using pip: pip install n0conflict
+         ↓
 
-If you want to talk to me about this, I would love to! Reach out to me via email @ nicolasjameskennedy@gmail.com
+  Opens the file and finds the conflict markers
+
+         ↓
+
+  Pulls out both versions of the conflicting code
+
+         ↓
+
+  Sends both versions to Claude (Anthropic's AI) with instructions
+
+         ↓
+
+  Claude reads both sides and writes a merged version that preserves both
+
+         ↓
+
+  Writes the result back to the file
+
+         ↓
+
+END: The conflict is gone
+\`\`\`
+
+## Why Open Source?
+
+I've been really interested in open-source software recently, and I wanted to create something useful for other developers. Merge conflicts are a pain point everyone hits on collaborative projects — I wanted to make resolving them easier and less error-prone.
+
+The idea of open-source is such a cool thing to me: people volunteering to make the world a better place. What most people don't realize is that the entire internet is basically propped up on software that people weren't even paid to create or maintain.
+
+## Getting Started
+
+n0conflict is designed to be easy to use and drop into existing workflows. It works as a standalone tool or alongside Git.
+
+\`\`\`bash
+pip install n0conflict
+\`\`\`
+
+I'm really proud of this project and I hope it's useful to other developers. If you're interested in learning more or want to contribute, check out the GitHub repository.
+
+If you want to talk about it, I'd love to chat — reach out at nicolasjameskennedy@gmail.com
 `.trim(),
 
   

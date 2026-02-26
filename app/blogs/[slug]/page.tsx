@@ -39,6 +39,9 @@ function renderMarkdown(content: string) {
   const elements: React.ReactNode[] = [];
   let currentParagraph: string[] = [];
   let currentList: string[] = [];
+  let codeBlockLines: string[] = [];
+  let inCodeBlock = false;
+  let codeBlockLang = "";
   let key = 0;
 
   const processInline = (text: string): React.ReactNode[] => {
@@ -94,6 +97,31 @@ function renderMarkdown(content: string) {
     }
   };
 
+  const flushCodeBlock = () => {
+    if (codeBlockLines.length > 0) {
+      const lang = codeBlockLang || "code";
+      elements.push(
+        <div key={key++} className="mb-6 rounded-sm overflow-hidden border border-white/10">
+          {/* Terminal title bar */}
+          <div className="flex items-center gap-2 px-4 py-2 bg-white/10 border-b border-white/10">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+            <span className="ml-2 text-xs font-mono opacity-50">{lang}</span>
+          </div>
+          {/* Code body */}
+          <pre className="bg-white/5 p-4 overflow-x-auto text-sm leading-relaxed">
+            <code className="text-white/80 whitespace-pre">
+              {codeBlockLines.join("\n")}
+            </code>
+          </pre>
+        </div>
+      );
+      codeBlockLines = [];
+      codeBlockLang = "";
+    }
+  };
+
   const flushList = () => {
     if (currentList.length > 0) {
       elements.push(
@@ -115,6 +143,24 @@ function renderMarkdown(content: string) {
 
   for (const line of lines) {
     const trimmed = line.trim();
+
+    if (trimmed.startsWith("```")) {
+      if (!inCodeBlock) {
+        flushList();
+        flushParagraph();
+        codeBlockLang = trimmed.slice(3).trim();
+        inCodeBlock = true;
+      } else {
+        flushCodeBlock();
+        inCodeBlock = false;
+      }
+      continue;
+    }
+
+    if (inCodeBlock) {
+      codeBlockLines.push(line);
+      continue;
+    }
 
     if (trimmed === "") {
       flushList();
@@ -154,6 +200,7 @@ function renderMarkdown(content: string) {
     currentParagraph.push(trimmed);
   }
 
+  flushCodeBlock();
   flushList();
   flushParagraph();
 
