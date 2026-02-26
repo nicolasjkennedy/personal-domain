@@ -65,6 +65,27 @@ Internet archive type of thing, hopefully if I keep it updated, if I die someone
 I guess I have to be an exceptional person for that to happen, but hey, you never know.
 
     `.trim(),
+  }, 
+  {
+  slug: "n0conflict",
+  title: "pip install n0conflict",
+  description: "n0conflict - an AI powered merge conflict resolver",
+  date: "2026-02-26",
+  tags: ["open-source","n0conflict"],
+  content:`
+I am excited to announce the release of my first open-source software project, n0conflict. n0conflict is an AI-powered merge conflict resolver that uses machine learning algorithms to analyze code changes and automatically resolve merge conflicts in a way that minimizes the risk of introducing bugs or errors.
+
+I've been really interested in open-source software recently, and I wanted to create something that could be useful to other developers. Merge conflicts are a common problem that developers face when working on collaborative projects, and I wanted to create a tool that could help make the process of resolving them easier and more efficient.
+
+n0conflict is designed to be easy to use and integrate into existing workflows. It can be used as a standalone tool or integrated into popular version control systems like Git. The tool uses machine learning algorithms to analyze code changes and automatically resolve merge conflicts in a way that minimizes the risk of introducing bugs or errors.
+
+I am really proud of this project and I hope that it can be useful to other developers. If you're interested in learning more about n0conflict or want to contribute to the project, you can check out the GitHub repository.
+
+you can also install n0conflict using pip: **pip install n0conflict**
+    
+`.trim(),
+
+  
   }
   
 ];
