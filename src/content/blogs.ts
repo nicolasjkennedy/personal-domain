@@ -77,12 +77,15 @@ I am excited to announce the release of my first open-source software project, n
 
 I've been really interested in open-source software recently, and I wanted to create something that could be useful to other developers. Merge conflicts are a common problem that developers face when working on collaborative projects, and I wanted to create a tool that could help make the process of resolving them easier and more efficient.
 
+The idea of open-source is such a cool thing to me, people volunteering to make the world a better place. The funny thing that people don't understand is that the entire internet is basically propped up on programs people weren't even paid to create/maintain.
+
 n0conflict is designed to be easy to use and integrate into existing workflows. It can be used as a standalone tool or integrated into popular version control systems like Git. The tool uses machine learning algorithms to analyze code changes and automatically resolve merge conflicts in a way that minimizes the risk of introducing bugs or errors.
 
 I am really proud of this project and I hope that it can be useful to other developers. If you're interested in learning more about n0conflict or want to contribute to the project, you can check out the GitHub repository.
 
 You can install n0conflict using pip: pip install n0conflict
-    
+
+If you want to talk to me about this, I would love to! Reach out to me via email @ nicolasjameskennedy@gmail.com
 `.trim(),
 
   
