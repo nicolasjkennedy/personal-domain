@@ -3,9 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteContent } from "@/src/content/site";
 import DotFieldBackground from "@/components/DotFieldBackground";
-import { TypingProvider } from "@/contexts/TypingContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import ScrollLock from "@/components/ScrollLock";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -50,19 +48,16 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}>
         <ThemeProvider>
-          <TypingProvider>
-            <ScrollLock />
-            <DotFieldBackground 
-              density={.01}
-              speed={1}
-              dotSize={1.5}
-              opacity={0.5}
-              mouseStrength={0.5}
-            />
-            <div style={{ position: 'relative', zIndex: 10 }}>
-              {children}
-            </div>
-          </TypingProvider>
+          <DotFieldBackground
+            density={.01}
+            speed={1}
+            dotSize={1.5}
+            opacity={0.5}
+            mouseStrength={0.5}
+          />
+          <div style={{ position: 'relative', zIndex: 10 }}>
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

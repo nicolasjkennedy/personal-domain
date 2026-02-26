@@ -1,19 +1,9 @@
 "use client";
 
 import { siteContent } from "@/src/content/site";
-import { useState, useEffect } from "react";
 import Portrait from "@/components/Portrait";
-import { useTyping } from "@/contexts/TypingContext";
 
 export default function Hero() {
-  const { setHasStarted } = useTyping();
-  const [ready, setReady] = useState(false);
-
-  // Skip the terminal prompt — show everything immediately on mount
-  useEffect(() => {
-    setHasStarted(true);
-    setReady(true);
-  }, [setHasStarted]);
 
   return (
     <section
@@ -23,11 +13,7 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Portrait */}
-          <div
-            className={`order-2 lg:order-2 flex justify-center lg:justify-start transition-all duration-1000 ease-out ${
-              ready ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-            }`}
-          >
+          <div className="order-2 lg:order-2 flex justify-center lg:justify-start">
             <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
               <Portrait
                 src="/me.png"

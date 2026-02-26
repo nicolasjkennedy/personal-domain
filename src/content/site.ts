@@ -29,6 +29,7 @@ export interface Project {
   links?: {
     github?: string;
     live?: string;
+    pypi?: string;
     caseStudy?: string;
   };
   featured?: boolean;
@@ -148,6 +149,18 @@ export const siteContent: SiteContent = {
       sourceType: "closed"
     },
     {
+      name: "n0conflict",
+      oneLiner: "AI-powered CLI that resolves Git merge conflicts by analyzing both sides and preserving intent",
+      description: "n0conflict is a published Python CLI tool that intelligently resolves Git merge conflicts using AI. Instead of forcing a manual pick between two versions, it analyzes the intent of each conflicting side and produces a merged result that preserves the logic of both. Supports resolve, scan, and explain commands across Python, TypeScript, Go, Rust, and more. Operates safely without writing to disk unless explicitly instructed. Available on PyPI.",
+      tech: ["Python", "Claude API", "Git", "CLI"],
+      links: {
+        github: "https://github.com/nicolasjkennedy/n0conflict",
+        pypi: "https://pypi.org/project/n0conflict/"
+      },
+      featured: true,
+      sourceType: "open"
+    },
+    {
       name: "Cisco Switch Provisioning CLI",
       oneLiner: "Zero-to-production switch provisioning tool with dry-run support and modular config sections",
       description: "A lightweight, dependency-free Python CLI that takes a Cisco switch from factory reset to fully production-ready in a single command. Supports granular section targeting — VLANs, interfaces, routing, and ACLs can each be applied independently or together. Features a built-in dry-run mode that previews every command before it touches the switch, making it safe to iterate on configurations in live environments. Leverages PuTTY's plink for SSH transport, keeping the tool portable with zero pip dependencies.",
@@ -155,7 +168,7 @@ export const siteContent: SiteContent = {
       links: {
         github: "https://github.com/nicolasjkennedy/cisco-switch-automated-config"
       },
-      featured: true,
+      featured: false,
       sourceType: "open"
     },
     {

@@ -92,6 +92,16 @@ export default function Projects() {
                             Live Demo →
                           </a>
                         )}
+                        {project.links.pypi && (
+                          <a
+                            href={project.links.pypi}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors"
+                          >
+                            PyPI →
+                          </a>
+                        )}
                         {project.links.caseStudy && (
                           <a
                             href={project.links.caseStudy}
@@ -186,6 +196,16 @@ export default function Projects() {
                               className="text-sm opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors"
                             >
                               Live →
+                            </a>
+                          )}
+                          {project.links.pypi && (
+                            <a
+                              href={project.links.pypi}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors"
+                            >
+                              PyPI →
                             </a>
                           )}
                         </div>

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useTyping } from "@/contexts/TypingContext";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const sectionItems = [
@@ -20,13 +19,10 @@ const pageItems = [
 ];
 
 export default function Navigation() {
-  const { hasStarted } = useTyping();
   const [activeSection, setActiveSection] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (!hasStarted) return;
-
     const handleScroll = () => {
       const sections = sectionItems.map((item) => item.href.substring(1));
       const scrollPosition = window.scrollY + 100;
@@ -44,7 +40,7 @@ export default function Navigation() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [hasStarted]);
+  }, []);
 
   const handleClick = (href: string) => {
     setIsMobileMenuOpen(false);
@@ -53,10 +49,6 @@ export default function Navigation() {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
-
-  if (!hasStarted) {
-    return null;
-  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-foreground/5 animate-fade-in">
