@@ -9,6 +9,8 @@ export interface BlogPost {
   title: string;
   description: string;
   date: string;
+  updated?: boolean;
+  updatedDate?: string;
   tags: string[];
   content: string;
   images?: BlogImage[];
@@ -24,6 +26,8 @@ slug        - URL path (must be unique, e.g. "my-first-post")
 title       - Post title shown on the page
 description - Short summary shown in previews/listings
 date        - Publish date in YYYY-MM-DD format
+updated     - Optional boolean, set to true if the post has been updated
+updatedDate - Optional date in YYYY-MM-DD format, shown when updated is true
 tags        - Array of relevant tags, e.g. ["open-source", "project"]
 content     - Full post body written in Markdown (see below)
 images      - Optional array of { src, alt, caption? } objects
@@ -37,6 +41,8 @@ Copy this template and add it to the top of the blogPosts array:
     title: "Your Title Here",
     description: "A short summary of the post.",
     date: "YYYY-MM-DD",
+    updated: true,           // optional — set to true if you updated the post
+    updatedDate: "YYYY-MM-DD", // optional — the date you updated it
     tags: ["tag1", "tag2"],
     content: `
 Your content here...

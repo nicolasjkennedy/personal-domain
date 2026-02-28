@@ -239,6 +239,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               <time className="text-sm font-mono opacity-50">
                 {formatDate(post.date)}
               </time>
+              {post.updated && post.updatedDate && (
+                <span className="text-sm font-mono opacity-50">
+                  · Updated {formatDate(post.updatedDate)}
+                </span>
+              )}
               <span className="text-xs font-mono opacity-40">
                 {getReadingTime(post.content)}
               </span>

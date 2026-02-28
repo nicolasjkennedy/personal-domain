@@ -197,6 +197,11 @@ export default function BlogPostList({ posts }: BlogPostListProps) {
                     <time className="text-sm opacity-50">
                       {formatDate(post.date)}
                     </time>
+                    {post.updated && post.updatedDate && (
+                      <span className="text-sm opacity-50">
+                        · Updated {formatDate(post.updatedDate)}
+                      </span>
+                    )}
                     <span className="text-xs opacity-40">
                       {getReadingTime(post.content)}
                     </span>
