@@ -184,5 +184,42 @@ If you want to talk about it, I'd love to chat — reach out at nicolasjameskenn
 
   
   }
-  
+  ,
+  {
+    slug: "future-goals",
+    title: "my goals for the future",
+    description: "talking about my future outlook and what my plans are",
+    date: "2026-02-28",
+    tags: ["Personal"],
+    content: `
+    ## Goals for 2026
+
+    ### Certifications
+    - **CCNA** 
+    
+    - **CompTIA Network+** 
+    
+    ### Projects (More to be added later)
+
+
+    **ServiceSurfer** -- FINALLY got our EIN from the IRS after waiting the entire month of February, so Briac and I can get the ball rolling after our hiatus from the project. During the time away from working directly on the company, we began to sort or pivot from our initial
+    plan for what we want the company to do. The initial intent with SS was to have a place where people could find the services that they need. I noticed that when I was trying to find something, they were all scattered over the entire internet and there wasn't one place 
+    that had all of the options. I felt like this was ridiculous especially in 2026 so I began scheming up an idea and I found a friend who could help me bring the product to life. Our pivot is sort of moving to a platform where small businesses can get access to online 
+    tools that are usually expensive, for cheap. Things like web design (the tool to make it or we do it for them), web hosting, agentic solutions, and really anything that a service company would need like a place where all of their appointments live we will have. The goal 
+    is to make a sort of "one stop shop" for small companies with small budgets to get access to the same things that the bigger companies have had for years, at a low price. We plan to still have the search function work as intended and that will still be our priority for now, 
+    but eventually we will focus our efforts on the tools because theres only so much we can do with a search engine. So the subscription for "advertising" will still be there and will always be the same price, but we are finding ways we can provide more to the world.
+
+
+    **n0conflict** -- This was a my first open source project and it wont be my last, for now it's working as well as it really can, obv I will be making bug fixes as time goes on but as it stands this is kind of a one and done thing where I just made a basic, but useful tool.
+    
+
+    **General Networking Software** -- I am continuously working on scripts and other things for my network technician role right now, some of it I can upload, other stuff is private. Eventually I really want to make an AI agent that handles help desk tickets, sorts them, and 
+    automatically reaches out to users if they don't provide all necessary information. Also I think it would be cool if it would be able to send specific tickets to specific departments. This would save a lot of time and would just be a smart option, and maybe even making 
+    a chat-bot window on the wifi website for my University to help people with common issues rather than sorting through a sea of relatively easy "fixes". Nothing set in stone yet, just an idea.
+
+
+
+    *for now, thats all thats really on my mind. Will update this later probably*
+    `.trim(),
+  }
 ];
