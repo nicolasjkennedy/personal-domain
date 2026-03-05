@@ -100,13 +100,13 @@ export const siteContent: SiteContent = {
       role: "Co-Founder",
       dates: "Founded 2026",
       bullets: [
-        "Co-founded and launched an AI-powered search platform for finding local and online service providers",
-        "Lead development user experience and interface design, backend architecture, and database design",
-        "Architected scalable backend infrastructure using PostgreSQL and vector search technologies",
-        "Aggregate service data from multiple sources and generate clean, concise business summaries",
-        "Built platform to replace fragmented searches across Yelp, Google, and social media with a single interface"
+        "Co-founded an AI-powered platform connecting users with local and online service providers",
+        "Drive growth strategy including user acquisition, provider onboarding, and market expansion",
+        "Led launch of AI-powered service matching that identifies the right provider from a plain-text description or uploaded image",
+        "Launched a phone line that collects a caller's problem and location, then directly connects them to a matched service provider",
+        "Own partnerships, outreach, and go-to-market execution to grow both the user and provider sides of the platform"
       ],
-      tech: ["Python", "PostgreSQL", "Vector Search", "LLMs", "Web Scraping", "Data Processing", "Backend Architecture"]
+      tech: ["Growth Strategy", "Go-to-Market", "User Acquisition", "AI Product", "Provider Partnerships"]
     },
     {
       company: "University of Rhode Island",
@@ -139,9 +139,9 @@ export const siteContent: SiteContent = {
   projects: [
     {
       name: "Service Surfer",
-      oneLiner: "AI-powered search platform for finding local and online service providers (Co-founded LLC)",
-      description: "Service Surfer LLC is an AI-powered search platform that helps users quickly find local and online service providers. As a co-founder, I lead development of the platform's core systems including web scraping and data ingestion, structured databases and vector search, AI-generated summaries and categorization, and scalable backend architecture. The platform aggregates service data from multiple public sources, automatically organizes businesses by category and location, and generates clean, concise summaries to replace fragmented searches across Yelp, Google, and social media with a single, fast, structured interface.",
-      tech: ["Python", "PostgreSQL", "Vector Search", "LLMs", "Web Scraping", "Data Processing"],
+      oneLiner: "AI-powered platform connecting users with the right service provider — via search, image, or phone",
+      description: "Service Surfer LLC is an AI-powered platform that connects users with local and online service providers. As a co-founder, I lead growth — driving user acquisition, provider onboarding, and market expansion. The platform features an AI matching engine that identifies the right service provider from a plain-text description of a problem or an uploaded image. It also offers a phone line where callers describe their issue and location, and are directly connected to a matched provider. My focus is on scaling both sides of the marketplace and executing go-to-market strategy to grow the business.",
+      tech: ["Growth Strategy", "Go-to-Market", "User Acquisition", "AI Product", "Provider Partnerships"],
       links: {
         live: "https://servicesurfer.app"
       },
