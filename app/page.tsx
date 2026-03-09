@@ -5,7 +5,7 @@ import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";
 import TechStack from "@/components/sections/TechStack";
 import Certifications from "@/components/sections/Certifications";
-import Contact from "@/components/sections/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       <TechStack />
       <Education />
       <Certifications />
-      <Contact />
+      <Footer />
     </main>
   );
 }

@@ -2,7 +2,6 @@ export interface SocialLinks {
   linkedin?: string;
   github?: string;
   email?: string;
-  resume?: string;
   website?: string;
 }
 
@@ -58,20 +57,19 @@ export interface SiteContent {
 
 export const siteContent: SiteContent = {
   name: "Nicolas James Kennedy",
-  headline: "Co-Founder at Service Surfer | Computer Engineering @ URI",
+  headline: "Co-Founder at ServiceSurfer | Network Engineer",
   summary: [
-    "Computer Engineering B.S. student at the University of Rhode Island (GPA: 3.7)",
-    "Co-Founder of Service Surfer LLC, an AI-powered search platform for service providers",
-    "IT Network Technician with large scale network infrastructure experience",
-    "Strong foundation in programming, networking, and web development with a focus on automation and efficiency"
+    "Co-Founder of ServiceSurfer LLC — a platform that uses proprietary service-request data to match consumers with local providers across web and phone",
+    "Operator focused on go-to-market execution, provider partnerships, and scaling two-sided marketplaces",
+    "Network Engineer with hands-on infrastructure experience across enterprise and campus environments",
+    "Computer Engineering B.S. student at the University of Rhode Island (GPA: 3.7)"
   ],
   location: "Kingston, Rhode Island",
-  currently: "Co-Founder at Service Surfer LLC | IT Network Technician at University of Rhode Island",
+  currently: "Co-Founder at ServiceSurfer LLC | IT Network Technician at University of Rhode Island",
   socials: {
     linkedin: "https://linkedin.com/in/nicolasjkennedy",
     email: "mailto:nicolasjameskennedy@gmail.com",
     github: "https://github.com/nicolasjkennedy",
-    resume: "/Nicolas_Kennedy_Resume_Personal_Domain.pdf"
   },
   education: [
     {
@@ -96,17 +94,18 @@ export const siteContent: SiteContent = {
   ],
   experience: [
     {
-      company: "Service Surfer LLC",
+      company: "ServiceSurfer LLC",
       role: "Co-Founder",
       dates: "Founded 2026",
       bullets: [
-        "Co-founded an AI-powered platform connecting users with local and online service providers",
-        "Drive growth strategy including user acquisition, provider onboarding, and market expansion",
-        "Led launch of AI-powered service matching that identifies the right provider from a plain-text description or uploaded image",
-        "Launched a phone line that collects a caller's problem and location, then directly connects them to a matched service provider",
-        "Own partnerships, outreach, and go-to-market execution to grow both the user and provider sides of the platform"
+        "Co-founded ServiceSurfer LLC — a platform that uses proprietary service-request data to match consumers with local providers across web and phone",
+        "Drive go-to-market strategy including consumer acquisition, provider onboarding, and market expansion",
+        "Launched a web matching experience where consumers describe their problem and are connected to the right local provider",
+        "Built and launched a phone channel that captures a caller's request and location, then routes them directly to a matched provider",
+        "Own provider partnerships, outreach, and operational execution across both sides of the marketplace",
+        "Manage company structure, positioning, and business development as an early-stage operator"
       ],
-      tech: ["Growth Strategy", "Go-to-Market", "User Acquisition", "AI Product", "Provider Partnerships"]
+      tech: ["Go-to-Market", "Two-Sided Marketplaces", "Provider Partnerships", "Business Development", "Operations"]
     },
     {
       company: "University of Rhode Island",
@@ -138,10 +137,10 @@ export const siteContent: SiteContent = {
   ],
   projects: [
     {
-      name: "Service Surfer",
-      oneLiner: "AI-powered platform connecting users with the right service provider — via search, image, or phone",
-      description: "Service Surfer LLC is an AI-powered platform that connects users with local and online service providers. As a co-founder, I lead growth — driving user acquisition, provider onboarding, and market expansion. The platform features an AI matching engine that identifies the right service provider from a plain-text description of a problem or an uploaded image. It also offers a phone line where callers describe their issue and location, and are directly connected to a matched provider. My focus is on scaling both sides of the marketplace and executing go-to-market strategy to grow the business.",
-      tech: ["Growth Strategy", "Go-to-Market", "User Acquisition", "AI Product", "Provider Partnerships"],
+      name: "ServiceSurfer",
+      oneLiner: "Matches consumers with local service providers using proprietary service-request data — across web and phone",
+      description: "ServiceSurfer LLC uses proprietary service-request data to match consumers with local providers across web and phone. As co-founder, I lead go-to-market strategy, provider partnerships, and operational execution on both sides of the marketplace. The platform serves consumers through a web experience where they describe their problem and are matched to the right local provider, and through a phone channel that captures a caller's request and location and routes them directly to a match. My focus is on growing provider supply, driving consumer demand, and building the operational foundation to scale.",
+      tech: ["Go-to-Market", "Two-Sided Marketplaces", "Provider Partnerships", "Business Development", "Operations"],
       links: {
         live: "https://servicesurfer.app"
       },
@@ -183,15 +182,6 @@ export const siteContent: SiteContent = {
       featured: false,
       sourceType: "open"
     },
-    {
-      name: "AiTutorMe",
-      oneLiner: "AI-powered platform that teaches you any topic through interactive slideshows and voice",
-      description: "AiTutorMe is an AI-powered learning platform that takes a prompt or uploaded classwork and generates an interactive slideshow to teach you the material. It walks you through each concept step by step, and you can interrupt at any point using your voice to ask questions, request clarification, or steer the lesson. Designed to make learning feel like a one-on-one tutoring session.",
-      tech: ["TypeScript", "Next.js", "React", "Tailwind CSS", "Gemini API", "Supabase", "Web Speech API", "WebSockets", "Node.js", "REST APIs", "Vercel", "OAuth 2.0", "Prisma"],
-      links: {},
-      featured: false,
-      sourceType: "inDevelopment"
-    }
   ],
   certifications: [
     {
