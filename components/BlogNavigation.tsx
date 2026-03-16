@@ -11,6 +11,7 @@ const navItems = [
   { label: "Experience", href: "/#experience" },
   { label: "Projects", href: "/#projects" },
   { label: "Blog", href: "/blogs/" },
+  { label: "Lessons", href: "/lessons/" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -21,6 +22,9 @@ export default function BlogNavigation() {
   const isActive = (href: string) => {
     if (href === "/blogs/" || href === "/blogs") {
       return pathname.startsWith("/blogs");
+    }
+    if (href === "/lessons/" || href === "/lessons") {
+      return pathname.startsWith("/lessons");
     }
     return false;
   };

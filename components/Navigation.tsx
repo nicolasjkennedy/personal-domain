@@ -16,6 +16,7 @@ const sectionItems = [
 
 const pageItems = [
   { label: "Blog", href: "/blogs/" },
+  { label: "Lessons", href: "/lessons/" },
 ];
 
 export default function Navigation() {
