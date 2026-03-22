@@ -57,6 +57,19 @@ export default function Experience() {
                       ))}
                     </ul>
 
+                    {exp.tech && exp.tech.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 pt-2">
+                        {exp.tech.map((tech, tIndex) => (
+                          <span
+                            key={tIndex}
+                            className="px-2 py-0.5 text-[10px] font-mono border border-foreground/15 rounded-sm text-foreground/50"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
                     {relatedProjects.length > 0 && (
                       <div className="pt-4 space-y-3">
                         <p className="text-xs font-mono text-foreground/40 tracking-wider uppercase">

@@ -45,20 +45,11 @@ function getAllTech(): TechItem[] {
 
 function categorizeTech(allTech: TechItem[]) {
   const categories: Record<string, string[]> = {
-    Languages: ["Python", "JavaScript", "TypeScript", "HTML", "CSS"],
-    "Infrastructure & Networking": [
-      "Cisco IOS", "TCP/IP", "VLANs", "Network Infrastructure",
-      "Network Configuration", "Network Automation", "SSH/Telnet",
-      "Configuration Management", "IP Camera Systems",
-    ],
-    "Data & AI": [
-      "PostgreSQL", "Vector Search", "LLMs", "Web Scraping",
-      "Data Processing", "File Processing",
-    ],
-    "Frameworks & Tools": [
-      "Backend Architecture", "Web APIs", "CLI Tools",
-      "OBS Studio", "Helpdesk Support",
-    ],
+    "Protocols & Standards": ["TCP/IP", "VLANs", "Trunking", "SSH", "Routing & Switching"],
+    "Hardware & Platforms": ["Cisco IOS", "Network Infrastructure", "Switch Stacking", "Wireless AP Deployment"],
+    "Physical Infrastructure": ["Cable Termination & Testing", "Patch Panel Management", "Rack Mounting", "Cable Management", "Data Closet Buildout"],
+    "Automation & Scripting": ["Python", "Network Automation", "CLI"],
+    "Operations": ["Network Configuration", "Configuration Management"],
   };
 
   const categorized: { category: string; techs: TechItem[] }[] = [];
@@ -151,9 +142,11 @@ function TechIcon({ name }: { name: string }) {
       );
 
     case "VLANs":
+    case "Trunking":
     case "Network Infrastructure":
     case "Network Configuration":
     case "Network Automation":
+    case "Switch Stacking":
       return (
         <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <rect x="1" y="3" width="22" height="6" rx="1" />
@@ -161,6 +154,40 @@ function TechIcon({ name }: { name: string }) {
           <path d="M12 9v6M6 9v6M18 9v6" />
           <circle cx="5" cy="6" r="1" fill="currentColor" stroke="none" />
           <circle cx="5" cy="18" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      );
+
+    case "Cable Termination & Testing":
+      return (
+        <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 12h16" />
+          <path d="M4 12a2 2 0 01-2-2V7a2 2 0 012-2h2v3h2V5h2v3h2V5h2v3h2V5h2a2 2 0 012 2v3a2 2 0 01-2 2" />
+          <path d="M12 12v7" />
+          <circle cx="12" cy="21" r="1.5" fill="currentColor" stroke="none" />
+        </svg>
+      );
+
+    case "Rack Mounting":
+    case "Cable Management":
+    case "Data Closet Buildout":
+      return (
+        <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="1" />
+          <path d="M2 7h20M2 12h20M2 17h20" />
+          <circle cx="19" cy="4.5" r="0.75" fill="currentColor" stroke="none" />
+          <circle cx="19" cy="9.5" r="0.75" fill="currentColor" stroke="none" />
+          <circle cx="19" cy="14.5" r="0.75" fill="currentColor" stroke="none" />
+          <circle cx="19" cy="19.5" r="0.75" fill="currentColor" stroke="none" />
+        </svg>
+      );
+
+    case "Wireless AP Deployment":
+      return (
+        <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M5 12.55a11 11 0 0114.08 0" />
+          <path d="M1.42 9a16 16 0 0121.16 0" />
+          <path d="M8.53 16.11a6 6 0 016.95 0" />
+          <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none" />
         </svg>
       );
 

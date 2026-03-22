@@ -27,7 +27,13 @@ export default function Certifications() {
                 <p className="text-base opacity-70">{cert.issuer}</p>
               </div>
               <div className="flex items-center gap-4">
-                <p className="text-sm opacity-60 font-mono">{cert.date}</p>
+                {cert.inProgress ? (
+                  <span className="text-xs font-mono px-2 py-0.5 border border-foreground/20 rounded-sm text-foreground/50 tracking-wide">
+                    In Progress
+                  </span>
+                ) : (
+                  <p className="text-sm opacity-60 font-mono">{cert.date}</p>
+                )}
                 {cert.credentialLink && (
                   <a
                     href={cert.credentialLink}
