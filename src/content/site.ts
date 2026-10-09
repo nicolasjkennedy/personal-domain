@@ -32,7 +32,9 @@ export interface Project {
     caseStudy?: string;
   };
   featured?: boolean;
-  sourceType?: "open" | "closed" | "inDevelopment";
+  // Internal route for a dedicated project page; makes the project card clickable
+  page?: string;
+  sourceType?: "open" | "closed" | "inDevelopment" | "startup";
 }
 
 export interface Certification {
@@ -62,10 +64,10 @@ export const siteContent: SiteContent = {
   summary: [
     "Network Engineer with hands-on infrastructure experience across enterprise and campus environments — VLANs, switching, routing, and automation",
     "IT Network Technician at the University of Rhode Island, deploying and maintaining campus networking infrastructure",
-    "Co-Founder of ServiceSurfer LLC — a platform that matches consumers with local service providers using proprietary service-request data, across web and phone",
+    "Co-founded ServiceSurfer LLC — a startup that grew from a local services directory into an AI phone line connecting homeowners with the right provider",
   ],
   location: "Kingston, Rhode Island",
-  currently: "IT Network Technician at University of Rhode Island | Co-Founder at ServiceSurfer LLC",
+  currently: "IT Network Technician at University of Rhode Island",
   socials: {
     linkedin: "https://linkedin.com/in/nicolasjkennedy",
     email: "mailto:nicolasjameskennedy@gmail.com",
@@ -94,20 +96,6 @@ export const siteContent: SiteContent = {
   ],
   experience: [
     {
-      company: "ServiceSurfer LLC",
-      role: "Co-Founder",
-      dates: "Founded 2026",
-      bullets: [
-        "Co-founded ServiceSurfer LLC — a platform that uses proprietary service-request data to match consumers with local providers across web and phone",
-        "Drive go-to-market strategy including consumer acquisition, provider onboarding, and market expansion",
-        "Launched a web matching experience where consumers describe their problem and are connected to the right local provider",
-        "Built and launched a phone channel that captures a caller's request and location, then routes them directly to a matched provider",
-        "Own provider partnerships, outreach, and operational execution across both sides of the marketplace",
-        "Manage company structure, positioning, and business development as an early-stage operator"
-      ],
-      tech: []
-    },
-    {
       company: "University of Rhode Island",
       role: "IT Network Technician",
       dates: "2025–Present",
@@ -119,6 +107,20 @@ export const siteContent: SiteContent = {
         "Develop and maintain network automation scripts to automate repetitive tasks"
       ],
       tech: ["Cisco IOS", "TCP/IP", "VLANs", "Trunking", "Switch Stacking", "Network Infrastructure", "Network Automation", "SSH", "Cable Termination & Testing", "Rack Mounting", "Cable Management", "Data Closet Buildout", "Wireless AP Deployment"]
+    },
+    {
+      company: "ServiceSurfer LLC",
+      role: "Co-Founder",
+      dates: "2025 – 2026",
+      bullets: [
+        "Co-founded ServiceSurfer LLC, a startup connecting homeowners with local service providers, first through a web platform and then through an AI phone line",
+        "Came up with the idea and led product design from the first version through the pivot",
+        "Built most of the core logic behind the matching platform and the AI phone line that talks with callers and routes them to a local provider",
+        "Designed the business model: affordable featured listings as an alternative to traditional small business advertising",
+        "Led provider outreach, partnerships, and go-to-market strategy across both sides of the marketplace",
+        "Pitched at URI RISE-UP pitch night and presented at a business convention at Bryant University"
+      ],
+      tech: []
     },
     {
       company: "Newport City Hall",
@@ -138,14 +140,12 @@ export const siteContent: SiteContent = {
   projects: [
     {
       name: "ServiceSurfer",
-      oneLiner: "Matches consumers with local service providers using proprietary service-request data — across web and phone",
-      description: "ServiceSurfer LLC uses proprietary service-request data to match consumers with local providers across web and phone. As co-founder, I lead go-to-market strategy, provider partnerships, and operational execution on both sides of the marketplace. The platform serves consumers through a web experience where they describe their problem and are matched to the right local provider, and through a phone channel that captures a caller's request and location and routes them directly to a match. My focus is on growing provider supply, driving consumer demand, and building the operational foundation to scale.",
+      oneLiner: "From a local services directory to an AI phone line that connects homeowners with the right provider",
+      description: "ServiceSurfer started with two problems: people couldn't find local service providers in one place, and small businesses were overpaying for ads that didn't convert. I came up with the idea, led product design, and built most of the core logic: first a web platform that pulled every local provider into one search, with affordable featured listings for businesses. After feedback from our URI RISE-UP mentors, we pivoted to an AI phone line that talks with callers, understands their home issue, and routes them straight to a local provider. Along the way I led provider outreach and go-to-market, formed ServiceSurfer LLC, and pitched it at RISE-UP pitch night and a business convention at Bryant University.",
       tech: [],
-      links: {
-        live: "https://servicesurfer.app"
-      },
+      page: "/servicesurfer/",
       featured: true,
-      sourceType: "closed"
+      sourceType: "startup"
     },
     {
       name: "n0conflict",

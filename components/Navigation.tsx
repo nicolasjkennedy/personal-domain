@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
+import ProjectsMenu, { projectPages } from "@/components/ProjectsMenu";
 
 const sectionItems = [
   { label: "About", href: "#about" },
@@ -16,7 +17,6 @@ const sectionItems = [
 
 const pageItems = [
   { label: "Blog", href: "/blogs/" },
-  { label: "Lessons", href: "/lessons/" },
 ];
 
 export default function Navigation() {
@@ -57,7 +57,15 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
-            {sectionItems.map((item, index) => (
+            {sectionItems.map((item, index) =>
+              item.href === "#projects" ? (
+                <ProjectsMenu
+                  key={item.href}
+                  active={activeSection === item.href}
+                  onAllProjects={() => handleClick(item.href)}
+                  style={{ animationDelay: `${index * 50}ms` }}
+                />
+              ) : (
               <button
                 key={item.href}
                 onClick={() => handleClick(item.href)}
@@ -71,7 +79,8 @@ export default function Navigation() {
               >
                 {item.label}
               </button>
-            ))}
+              )
+            )}
             {pageItems.map((item, index) => (
               <Link
                 key={item.href}
@@ -123,17 +132,29 @@ export default function Navigation() {
         {isMobileMenuOpen && (
           <div className="md:hidden pb-4 space-y-3 border-t border-foreground/5 pt-4">
             {sectionItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => handleClick(item.href)}
-                className={`block w-full text-left text-sm font-medium tracking-wide transition-opacity hover:opacity-70 ${
-                  activeSection === item.href
-                    ? "opacity-100 border-l-2 border-foreground pl-3"
-                    : "opacity-60 pl-3"
-                }`}
-              >
-                {item.label}
-              </button>
+              <div key={item.href} className="space-y-3">
+                <button
+                  onClick={() => handleClick(item.href)}
+                  className={`block w-full text-left text-sm font-medium tracking-wide transition-opacity hover:opacity-70 ${
+                    activeSection === item.href
+                      ? "opacity-100 border-l-2 border-foreground pl-3"
+                      : "opacity-60 pl-3"
+                  }`}
+                >
+                  {item.label}
+                </button>
+                {item.href === "#projects" &&
+                  projectPages.map((page) => (
+                    <Link
+                      key={page.href}
+                      href={page.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block w-full text-left text-sm font-medium tracking-wide transition-opacity hover:opacity-70 opacity-60 pl-7"
+                    >
+                      ↳ {page.label}
+                    </Link>
+                  ))}
+              </div>
             ))}
             {pageItems.map((item) => (
               <Link

@@ -1,5 +1,13 @@
+import Link from "next/link";
 import { siteContent } from "@/src/content/site";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+
+const sourceBadges = {
+  open: { label: "Open Source", className: "text-blue-400 border-blue-400/30 bg-blue-400/10" },
+  inDevelopment: { label: "In Development", className: "text-green-400 border-green-400/30 bg-green-400/10" },
+  closed: { label: "Closed Source", className: "text-orange-300 border-orange-300/30 bg-orange-300/10" },
+  startup: { label: "Startup", className: "text-purple-400 border-purple-400/30 bg-purple-400/10" },
+};
 
 export default function Projects() {
   const featuredProjects = siteContent.projects.filter((p) => p.featured);
@@ -31,21 +39,18 @@ export default function Projects() {
                   <div
                     className="relative border border-foreground/10 p-8 lg:p-10 hover:border-foreground/20 hover:scale-[1.02] transition-all duration-300"
                   >
+                  {project.page && (
+                    <Link
+                      href={project.page}
+                      aria-label={`Read the ${project.name} story`}
+                      className="absolute inset-0 z-0"
+                    />
+                  )}
                   {project.sourceType && (
                     <span
-                      className={`absolute top-4 right-4 px-2.5 py-0.5 text-[10px] font-mono tracking-wide rounded-sm border ${
-                        project.sourceType === "open"
-                          ? "text-blue-400 border-blue-400/30 bg-blue-400/10"
-                          : project.sourceType === "inDevelopment"
-                          ? "text-green-400 border-green-400/30 bg-green-400/10"
-                          : "text-orange-300 border-orange-300/30 bg-orange-300/10"
-                      }`}
+                      className={`absolute top-4 right-4 px-2.5 py-0.5 text-[10px] font-mono tracking-wide rounded-sm border ${sourceBadges[project.sourceType].className}`}
                     >
-                      {project.sourceType === "open"
-                        ? "Open Source"
-                        : project.sourceType === "inDevelopment"
-                        ? "In Development"
-                        : "Closed Source"}
+                      {sourceBadges[project.sourceType].label}
                     </span>
                   )}
                   <div className="space-y-4">
@@ -70,9 +75,17 @@ export default function Projects() {
                       </div>
                     )}
 
-                    {project.links && (
-                      <div className="flex flex-wrap gap-4 pt-4">
-                        {project.links.github && (
+                    {(project.links || project.page) && (
+                      <div className="relative z-10 flex flex-wrap gap-4 pt-4">
+                        {project.page && (
+                          <Link
+                            href={project.page}
+                            className="text-sm opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors"
+                          >
+                            Read the Story →
+                          </Link>
+                        )}
+                        {project.links?.github && (
                           <a
                             href={project.links.github}
                             target="_blank"
@@ -82,7 +95,7 @@ export default function Projects() {
                             GitHub →
                           </a>
                         )}
-                        {project.links.live && (
+                        {project.links?.live && (
                           <a
                             href={project.links.live}
                             target="_blank"
@@ -92,7 +105,7 @@ export default function Projects() {
                             Live Demo →
                           </a>
                         )}
-                        {project.links.pypi && (
+                        {project.links?.pypi && (
                           <a
                             href={project.links.pypi}
                             target="_blank"
@@ -102,7 +115,7 @@ export default function Projects() {
                             PyPI →
                           </a>
                         )}
-                        {project.links.caseStudy && (
+                        {project.links?.caseStudy && (
                           <a
                             href={project.links.caseStudy}
                             target="_blank"
@@ -144,19 +157,9 @@ export default function Projects() {
                       <p className="text-base opacity-80">{project.oneLiner}</p>
                       {project.sourceType && (
                         <span
-                          className={`inline-block mt-3 px-2.5 py-0.5 text-[10px] font-mono tracking-wide rounded-sm border ${
-                            project.sourceType === "open"
-                              ? "text-blue-400 border-blue-400/30 bg-blue-400/10"
-                              : project.sourceType === "inDevelopment"
-                              ? "text-green-400 border-green-400/30 bg-green-400/10"
-                              : "text-orange-300 border-orange-300/30 bg-orange-300/10"
-                          }`}
+                          className={`inline-block mt-3 px-2.5 py-0.5 text-[10px] font-mono tracking-wide rounded-sm border ${sourceBadges[project.sourceType].className}`}
                         >
-                          {project.sourceType === "open"
-                            ? "Open Source"
-                            : project.sourceType === "inDevelopment"
-                            ? "In Development"
-                            : "Closed Source"}
+                          {sourceBadges[project.sourceType].label}
                         </span>
                       )}
                     </div>

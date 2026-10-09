@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
+import ProjectsMenu, { projectPages } from "@/components/ProjectsMenu";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -11,7 +12,6 @@ const navItems = [
   { label: "Experience", href: "/#experience" },
   { label: "Projects", href: "/#projects" },
   { label: "Blog", href: "/blogs/" },
-  { label: "Lessons", href: "/lessons/" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -23,8 +23,8 @@ export default function BlogNavigation() {
     if (href === "/blogs/" || href === "/blogs") {
       return pathname.startsWith("/blogs");
     }
-    if (href === "/lessons/" || href === "/lessons") {
-      return pathname.startsWith("/lessons");
+    if (href === "/#projects") {
+      return projectPages.some((page) => pathname.startsWith(page.href.replace(/\/$/, "")));
     }
     return false;
   };
@@ -35,7 +35,14 @@ export default function BlogNavigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
-            {navItems.map((item, index) => (
+            {navItems.map((item, index) =>
+              item.href === "/#projects" ? (
+                <ProjectsMenu
+                  key={item.href}
+                  active={isActive(item.href)}
+                  style={{ animationDelay: `${index * 50}ms` }}
+                />
+              ) : (
               <Link
                 key={item.href}
                 href={item.href}
@@ -48,7 +55,8 @@ export default function BlogNavigation() {
               >
                 {item.label}
               </Link>
-            ))}
+              )
+            )}
           </div>
 
           {/* Right side: theme toggle + mobile menu */}
@@ -90,18 +98,34 @@ export default function BlogNavigation() {
         {isMobileMenuOpen && (
           <div className="md:hidden pb-4 space-y-3 border-t border-foreground/5 pt-4">
             {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block w-full text-left text-sm font-medium tracking-wide transition-opacity hover:opacity-70 ${
-                  isActive(item.href)
-                    ? "opacity-100 border-l-2 border-foreground pl-3"
-                    : "opacity-60 pl-3"
-                }`}
-              >
-                {item.label}
-              </Link>
+              <div key={item.href} className="space-y-3">
+                <Link
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block w-full text-left text-sm font-medium tracking-wide transition-opacity hover:opacity-70 ${
+                    isActive(item.href) && item.href !== "/#projects"
+                      ? "opacity-100 border-l-2 border-foreground pl-3"
+                      : "opacity-60 pl-3"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+                {item.href === "/#projects" &&
+                  projectPages.map((page) => (
+                    <Link
+                      key={page.href}
+                      href={page.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block w-full text-left text-sm font-medium tracking-wide transition-opacity hover:opacity-70 ${
+                        pathname.startsWith(page.href.replace(/\/$/, ""))
+                          ? "opacity-100 border-l-2 border-foreground pl-7"
+                          : "opacity-60 pl-7"
+                      }`}
+                    >
+                      ↳ {page.label}
+                    </Link>
+                  ))}
+              </div>
             ))}
           </div>
         )}
