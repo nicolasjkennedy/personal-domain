@@ -148,6 +148,18 @@ export const siteContent: SiteContent = {
       sourceType: "startup"
     },
     {
+      name: "NetTest",
+      oneLiner: "An open-source, build-it-yourself network tester inspired by the NetAlly LinkSprinter",
+      description: "NetTest is a pocket-sized ESP32 network tester you plug into any Ethernet port to see whether the drop works and how it's configured. Powered over PoE, it runs a full test sequence automatically (link, switch and port, VLAN, DHCP, gateway, DNS, and internet) and shows the results, IP details, and port info on a small built-in screen. The goal is everything the LinkSprinter can do for under $100 in parts, with open-source hardware, firmware, and a custom 3D-printed case so anyone can build their own.",
+      tech: ["ESP32", "PoE", "Embedded", "LLDP / CDP", "3D Printing"],
+      links: {
+        github: "https://github.com/nicolasjkennedy/NetTest"
+      },
+      page: "/nettest/",
+      featured: true,
+      sourceType: "inDevelopment"
+    },
+    {
       name: "n0conflict",
       oneLiner: "AI-powered CLI that resolves Git merge conflicts by analyzing both sides and preserving intent",
       description: "n0conflict is a published Python CLI tool that intelligently resolves Git merge conflicts using AI. Instead of forcing a manual pick between two versions, it analyzes the intent of each conflicting side and produces a merged result that preserves the logic of both. Supports resolve, scan, and explain commands across Python, TypeScript, Go, Rust, and more. Operates safely without writing to disk unless explicitly instructed. Available on PyPI.",

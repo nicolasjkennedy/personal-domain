@@ -42,7 +42,7 @@ export default function Projects() {
                   {project.page && (
                     <Link
                       href={project.page}
-                      aria-label={`Read the ${project.name} story`}
+                      aria-label={`Learn more about ${project.name}`}
                       className="absolute inset-0 z-0"
                     />
                   )}
@@ -82,7 +82,7 @@ export default function Projects() {
                             href={project.page}
                             className="text-sm opacity-70 hover:opacity-100 border-b border-foreground/20 hover:border-foreground/40 transition-colors"
                           >
-                            Read the Story →
+                            Learn More →
                           </Link>
                         )}
                         {project.links?.github && (
