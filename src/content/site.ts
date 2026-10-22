@@ -96,6 +96,12 @@ export const siteContent: SiteContent = {
   ],
   experience: [
     {
+      company: "Citizens Bank · Johnston, RI (HQ Campus)",
+      role: "Network Engineer Intern, Enterprise & Security",
+      dates: "Upcoming · Summer 2027",
+      bullets: []
+    },
+    {
       company: "University of Rhode Island",
       role: "IT Network Technician",
       dates: "2025–Present",

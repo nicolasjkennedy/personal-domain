@@ -45,6 +45,7 @@ export default function Experience() {
                       <p className="text-sm opacity-60 font-mono mb-4">{exp.dates}</p>
                     </div>
 
+                    {exp.bullets.length > 0 && (
                     <ul className="space-y-3 pt-2">
                       {exp.bullets.map((bullet, bIndex) => (
                         <li
@@ -56,6 +57,7 @@ export default function Experience() {
                         </li>
                       ))}
                     </ul>
+                    )}
 
                     {exp.tech && exp.tech.length > 0 && (
                       <div className="flex flex-wrap gap-1.5 pt-2">
