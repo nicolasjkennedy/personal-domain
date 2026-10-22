@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: `${siteContent.name} | ${siteContent.headline}`,
   description: `${siteContent.headline}. ${siteContent.summary.join(" ")}`,
-  keywords: ["portfolio", "developer", "engineer", "designer", siteContent.name],
+  keywords: ["portfolio", "network engineer", "computer engineering", "URI", siteContent.name],
   authors: [{ name: siteContent.name }],
   openGraph: {
     title: `${siteContent.name} | ${siteContent.headline}`,

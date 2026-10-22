@@ -41,6 +41,24 @@ export default function Education() {
                       </li>
                     ))}
                   </ul>
+
+                  {edu.coursework && edu.coursework.length > 0 && (
+                    <div className="pt-2 space-y-3">
+                      <p className="text-xs font-mono text-foreground/40 tracking-wider uppercase">
+                        Relevant Coursework
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {edu.coursework.map((course, cIndex) => (
+                          <span
+                            key={cIndex}
+                            className="px-2 py-0.5 text-[10px] font-mono border border-foreground/15 rounded-sm text-foreground/50"
+                          >
+                            {course}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </AnimateOnScroll>

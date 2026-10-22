@@ -69,11 +69,12 @@ export const serviceSurferStory = {
       ],
       bullets: [
         "Came up with the idea for ServiceSurfer and led product design from the first version through the pivot",
-        "Engineered most of the core logic behind the matching platform and the AI phone line",
+        "Engineered most of the core logic behind the matching platform and the AI phone line, built on Next.js and Supabase with Claude handling the conversation and ElevenLabs for voice",
         "Designed the business model: affordable, high-intent featured listings as an alternative to traditional small business advertising",
         "Led provider outreach and partnerships, growing the supply side that both the web platform and the phone line depended on",
         "Drove go-to-market strategy: consumer acquisition, provider onboarding, and market expansion",
         "Pitched at RISE-UP pitch night and presented at a business convention at Bryant University to gather public feedback",
+        "Grew ServiceSurfer to a few dozen users, with numerous local businesses lined up and ready to register as providers",
         "Handled company formation, positioning, and business development, from the LLC and EIN to how we pitched ServiceSurfer to providers (I've always said engineers have a business mind it just needs to be discovered)",
       ],
     },

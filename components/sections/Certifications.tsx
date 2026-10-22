@@ -10,7 +10,7 @@ export default function Certifications() {
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 lg:mb-16 tracking-tight">
-            Certifications
+            Certifications &amp; Awards
           </h2>
         </AnimateOnScroll>
 
@@ -49,6 +49,33 @@ export default function Certifications() {
             </AnimateOnScroll>
           ))}
         </div>
+
+        {siteContent.awards.length > 0 && (
+          <div className="mt-16 lg:mt-20">
+            <AnimateOnScroll>
+              <h3 className="text-xl opacity-60 mb-8 font-mono tracking-wide">
+                Awards
+              </h3>
+            </AnimateOnScroll>
+            <div className="space-y-6">
+              {siteContent.awards.map((award, index) => (
+                <AnimateOnScroll key={index} delay={index * 100}>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 py-4 border-b border-foreground/5 last:border-0 hover:border-foreground/10 transition-colors duration-300 group">
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-bold mb-1 group-hover:opacity-90 transition-opacity">
+                        {award.name}
+                      </h3>
+                      <p className="text-base opacity-70">{award.issuer}</p>
+                    </div>
+                    {award.date && (
+                      <p className="text-sm opacity-60 font-mono">{award.date}</p>
+                    )}
+                  </div>
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

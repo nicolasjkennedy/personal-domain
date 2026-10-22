@@ -22,7 +22,7 @@ export interface RoadmapItem {
 export const netTest = {
   title: "NetTest",
   subtitle: "An open-source, build-it-yourself network tester inspired by the NetAlly LinkSprinter",
-  status: "In Development",
+  status: "Schematic Phase",
   github: "https://github.com/nicolasjkennedy/NetTest",
 
   overview: [
@@ -77,7 +77,7 @@ export const netTest = {
   ] as Limitation[],
 
   roadmap: [
-    { title: "Research & parts sourcing", detail: "Finding an ESP32 board with PoE Ethernet built in, plus the right screen and battery setup", status: "active" },
+    { title: "Research & schematic", detail: "Choosing an ESP32 board with PoE Ethernet built in, plus the right screen and battery setup, and drawing up the schematic", status: "active" },
     { title: "First prototype", detail: "Order parts and get a breadboard build running the core tests", status: "next" },
     { title: "Firmware", detail: "Build out the full test sequence, the on-screen results, and on-device history", status: "planned" },
     { title: "3D-printed case", detail: "Design an enclosure that fits the board, screen, and battery", status: "planned" },
